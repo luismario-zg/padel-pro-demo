@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#00e676",
+                        "background-light": "#f5f8f7",
+                        "background-dark": "#0f1117",
+                        "card-dark": "#1a1d2e",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 transition-colors duration-300">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<!-- Navigation -->
+<header class="sticky top-0 z-50 w-full border-b border-slate-200 dark:border-slate-800 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md">
+<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+<div class="flex h-16 items-center justify-between">
+<a class="flex items-center gap-2" href="01_landing_hero.html">
+<span class="material-symbols-outlined text-primary text-3xl">sports_tennis</span>
+<h2 class="text-xl font-bold tracking-tight">PadelPro</h2>
+</a>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#caracteristicas">Características</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#precios">Precios</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Contacto</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="hidden sm:block text-sm font-semibold hover:text-primary transition-colors" onclick="window.location.href='03_admin_login.html'">Iniciar sesión</button>
+<button class="rounded-lg bg-primary px-4 py-2 text-sm font-bold text-background-dark hover:opacity-90 transition-opacity" onclick="window.location.href='09_portal_login.html'">
+                            Comenzar gratis
+                        </button>
+</div>
+</div>
+</div>
+</header>
+<main class="flex-grow">
+<!-- Features Section -->
+<section class="py-24 sm:py-32" id="caracteristicas">
+<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+<div class="max-w-2xl lg:mx-0">
+<h2 class="text-base font-semibold leading-7 text-primary">Todo lo que necesitas</h2>
+<p class="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">Gestiona tu club de pádel como un profesional</p>
+<p class="mt-6 text-lg leading-8 text-slate-600 dark:text-slate-400">
+                            Optimiza la operación de tus canchas con herramientas diseñadas específicamente para el crecimiento y la eficiencia.
+                        </p>
+</div>
+<div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
+<div class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-3">
+<!-- Feature 1 -->
+<div class="relative flex flex-col gap-6 rounded-xl bg-slate-100 dark:bg-card-dark p-8 border border-slate-200 dark:border-slate-800">
+<div class="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
+<span class="material-symbols-outlined text-3xl">calendar_month</span>
+</div>
+<div>
+<h3 class="text-lg font-bold">Reservas Online</h3>
+<p class="mt-2 text-base text-slate-600 dark:text-slate-400">Calendario interactivo disponible 24/7 para que tus clientes reserven en segundos.</p>
+</div>
+</div>
+<!-- Feature 2 -->
+<div class="relative flex flex-col gap-6 rounded-xl bg-slate-100 dark:bg-card-dark p-8 border border-slate-200 dark:border-slate-800">
+<div class="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
+<span class="material-symbols-outlined text-3xl">grid_view</span>
+</div>
+<div>
+<h3 class="text-lg font-bold">Gestión de 10 Canchas</h3>
+<p class="mt-2 text-base text-slate-600 dark:text-slate-400">Mapa visual de disponibilidad en tiempo real optimizado para complejos de gran escala.</p>
+</div>
+</div>
+<!-- Feature 3 -->
+<div class="relative flex flex-col gap-6 rounded-xl bg-slate-100 dark:bg-card-dark p-8 border border-slate-200 dark:border-slate-800">
+<div class="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
+<span class="material-symbols-outlined text-3xl">person</span>
+</div>
+<div>
+<h3 class="text-lg font-bold">Portal de Jugadores</h3>
+<p class="mt-2 text-base text-slate-600 dark:text-slate-400">Perfiles detallados, historial de partidos y métricas de rendimiento personalizadas.</p>
+</div>
+</div>
+<!-- Feature 4 -->
+<div class="relative flex flex-col gap-6 rounded-xl bg-slate-100 dark:bg-card-dark p-8 border border-slate-200 dark:border-slate-800">
+<div class="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
+<span class="material-symbols-outlined text-3xl">payments</span>
+</div>
+<div>
+<h3 class="text-lg font-bold">Finanzas Integradas</h3>
+<p class="mt-2 text-base text-slate-600 dark:text-slate-400">Seguimiento de ingresos, pasarelas de pago y reportes automáticos detallados.</p>
+</div>
+</div>
+<!-- Feature 5 -->
+<div class="relative flex flex-col gap-6 rounded-xl bg-slate-100 dark:bg-card-dark p-8 border border-slate-200 dark:border-slate-800">
+<div class="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
+<span class="material-symbols-outlined text-3xl">card_membership</span>
+</div>
+<div>
+<h3 class="text-lg font-bold">Suscripciones</h3>
+<p class="mt-2 text-base text-slate-600 dark:text-slate-400">Membresías recurrentes y planes de pago automatizados para fidelizar clientes.</p>
+</div>
+</div>
+<!-- Feature 6 -->
+<div class="relative flex flex-col gap-6 rounded-xl bg-slate-100 dark:bg-card-dark p-8 border border-slate-200 dark:border-slate-800">
+<div class="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
+<span class="material-symbols-outlined text-3xl">notifications_active</span>
+</div>
+<div>
+<h3 class="text-lg font-bold">Notificaciones</h3>
+<p class="mt-2 text-base text-slate-600 dark:text-slate-400">Recordatorios por WhatsApp y email enviados automáticamente para reducir cancelaciones.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Pricing Section -->
+<section class="bg-slate-50 dark:bg-slate-900/30 py-24 sm:py-32" id="precios">
+<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+<div class="text-center">
+<h2 class="text-3xl font-bold tracking-tight sm:text-4xl">Planes diseñados para tu crecimiento</h2>
+<p class="mt-4 text-lg text-slate-600 dark:text-slate-400">Empieza gratis y escala a medida que tu club se expande.</p>
+</div>
+<div class="mt-16 grid grid-cols-1 gap-8 lg:grid-cols-3 items-center">
+<!-- Tier 1: Basic -->
+<div class="flex flex-col rounded-xl bg-white dark:bg-card-dark p-8 border border-slate-200 dark:border-slate-800 shadow-sm">
+<h3 class="text-lg font-bold">Básico</h3>
+<div class="mt-4 flex items-baseline gap-1">
+<span class="text-4xl font-black">€49</span>
+<span class="text-sm font-semibold text-slate-500">/mes</span>
+</div>
+<p class="mt-4 text-sm text-slate-600 dark:text-slate-400">Perfecto para clubes locales pequeños.</p>
+<ul class="mt-8 space-y-4 flex-1">
+<li class="flex gap-3 text-sm">
+<span class="material-symbols-outlined text-primary text-xl">check_circle</span>
+                                    Hasta 3 canchas
+                                </li>
+<li class="flex gap-3 text-sm">
+<span class="material-symbols-outlined text-primary text-xl">check_circle</span>
+                                    Features básicas de reserva
+                                </li>
+<li class="flex gap-3 text-sm">
+<span class="material-symbols-outlined text-primary text-xl">check_circle</span>
+                                    Soporte por email
+                                </li>
+</ul>
+<button class="mt-8 w-full rounded-lg border border-primary text-primary py-2.5 text-sm font-bold hover:bg-primary/10 transition-colors" onclick="window.location.href='09_portal_login.html'">
+                                Elegir Básico
+                            </button>
+</div>
+<!-- Tier 2: Pro (Featured) -->
+<div class="relative flex flex-col rounded-xl bg-white dark:bg-card-dark p-8 border-2 border-primary shadow-2xl scale-105 z-10">
+<div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-background-dark text-xs font-bold uppercase tracking-widest px-4 py-1 rounded-full">
+                                Más popular
+                            </div>
+<h3 class="text-lg font-bold">Pro</h3>
+<div class="mt-4 flex items-baseline gap-1">
+<span class="text-4xl font-black">€99</span>
+<span class="text-sm font-semibold text-slate-500">/mes</span>
+</div>
+<p class="mt-4 text-sm text-slate-600 dark:text-slate-400">La solución completa para clubes en expansión.</p>
+<ul class="mt-8 space-y-4 flex-1">
+<li class="flex gap-3 text-sm">
+<span class="material-symbols-outlined text-primary text-xl">check_circle</span>
+                                    Hasta 10 canchas
+                                </li>
+<li class="flex gap-3 text-sm">
+<span class="material-symbols-outlined text-primary text-xl">check_circle</span>
+                                    Gestión avanzada de jugadores
+                                </li>
+<li class="flex gap-3 text-sm">
+<span class="material-symbols-outlined text-primary text-xl">check_circle</span>
+                                    Reportes financieros completos
+                                </li>
+<li class="flex gap-3 text-sm font-semibold">
+<span class="material-symbols-outlined text-primary text-xl">check_circle</span>
+                                    Notificaciones automáticas
+                                </li>
+</ul>
+<button class="mt-8 w-full rounded-lg bg-primary text-background-dark py-3 text-sm font-black hover:opacity-90 transition-opacity" onclick="window.location.href='09_portal_login.html'">
+                                Comenzar Pro
+                            </button>
+</div>
+<!-- Tier 3: Enterprise -->
+<div class="flex flex-col rounded-xl bg-white dark:bg-card-dark p-8 border border-slate-200 dark:border-slate-800 shadow-sm">
+<h3 class="text-lg font-bold">Enterprise</h3>
+<div class="mt-4 flex items-baseline gap-1">
+<span class="text-4xl font-black">€199</span>
+<span class="text-sm font-semibold text-slate-500">/mes</span>
+</div>
+<p class="mt-4 text-sm text-slate-600 dark:text-slate-400">Para grandes centros deportivos multi-sede.</p>
+<ul class="mt-8 space-y-4 flex-1">
+<li class="flex gap-3 text-sm">
+<span class="material-symbols-outlined text-primary text-xl">check_circle</span>
+                                    Canchas ilimitadas
+                                </li>
+<li class="flex gap-3 text-sm">
+<span class="material-symbols-outlined text-primary text-xl">check_circle</span>
+                                    Soporte dedicado 24/7
+                                </li>
+<li class="flex gap-3 text-sm">
+<span class="material-symbols-outlined text-primary text-xl">check_circle</span>
+                                    Integración API personalizada
+                                </li>
+<li class="flex gap-3 text-sm">
+<span class="material-symbols-outlined text-primary text-xl">check_circle</span>
+                                    Acceso multi-sede
+                                </li>
+</ul>
+<button class="mt-8 w-full rounded-lg border border-primary text-primary py-2.5 text-sm font-bold hover:bg-primary/10 transition-colors">
+                                Contactar Ventas
+                            </button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="border-t border-slate-200 dark:border-slate-800 bg-background-light dark:bg-background-dark py-12">
+<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+<div class="flex flex-col items-center justify-between gap-8 md:flex-row">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-2xl">sports_tennis</span>
+<h2 class="text-lg font-bold tracking-tight">PadelPro</h2>
+</div>
+<nav class="flex flex-wrap justify-center gap-x-8 gap-y-4">
+<a class="text-sm text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="#caracteristicas">Características</a>
+<a class="text-sm text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="#precios">Precios</a>
+<a class="text-sm text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="#">Contacto</a>
+<a class="text-sm text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="#">Privacidad</a>
+<a class="text-sm text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="#">Términos</a>
+</nav>
+</div>
+<div class="mt-8 border-t border-slate-200 dark:border-slate-800 pt-8 text-center">
+<p class="text-xs text-slate-500">© 2026 PadelPro. Todos los derechos reservados.</p>
+</div>
+</div>
+</footer>
+</div>
+</body></html>

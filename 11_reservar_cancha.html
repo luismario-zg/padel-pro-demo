@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#00e676",
+                        "background-light": "#f5f8f7",
+                        "background-dark": "#0f1117",
+                        "card-dark": "#1a1d2e",
+                        "accent-dark": "#24283b"
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen">
+<!-- Top Navigation Bar -->
+<header class="border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-background-dark sticky top-0 z-50">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between h-16 items-center">
+<!-- Logo & Nav Links -->
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-3xl font-bold">sports_tennis</span>
+<span class="text-xl font-black tracking-tighter dark:text-white">PadelPro</span>
+</div>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="10_portal_home.html">Inicio</a>
+<a class="text-sm font-bold text-slate-900 dark:text-primary border-b-2 border-primary py-5" href="11_reservar_cancha.html">Reservar</a>
+<a class="text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="12_mis_reservas.html">Mis Reservas</a>
+<a class="text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="13_mis_metricas.html">Mi Perfil</a>
+</nav>
+</div>
+<!-- User Profile & Notifications -->
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-accent-dark rounded-full transition-colors relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-primary rounded-full border-2 border-background-dark"></span>
+</button>
+<div class="flex items-center gap-3 pl-4 border-l border-slate-200 dark:border-slate-800">
+<div class="text-right hidden sm:block">
+<p class="text-sm font-bold leading-none">María García</p>
+<p class="text-xs text-primary font-medium mt-1">Nivel 3.8</p>
+</div>
+<div class="w-10 h-10 rounded-full bg-cover bg-center border-2 border-primary/20" data-alt="User profile picture of Maria Garcia" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCMdAiUOyKHgaHebIN60UHMamiDeKIdEvsWXQ5WOy1c2qKWdlp9TvTqo1rSV5FlXv-VDWaetV5EcyqmH_8wRtxuUBtddcEUb__OJgyIw2ZR_lC5o4ZrPaD9NLZZVzz736DvGFJh_fWjI_RyC3mYhP2RNsKKT8ruX2R_8JKsypZ9l7dKsVjS7rdbTa__2ekAWzycz-I8byx9KiVjsxtBpBW_sjgB1iLowkFAol1-5cfnfU65ntywalhE41tYFy9ZYUMJnslb5GwnB6Q')"></div>
+</div>
+</div>
+</div>
+</div>
+</header>
+<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+<div class="flex flex-col lg:flex-row gap-8">
+<!-- LEFT COLUMN: Booking Interface -->
+<div class="lg:w-2/3 flex flex-col gap-6">
+<div>
+<h1 class="text-3xl font-black tracking-tight mb-6">Reservar una cancha</h1>
+<!-- Date Selector Strip -->
+<div class="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-hide mb-4">
+<button class="flex-1 min-w-[70px] flex flex-col items-center p-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-accent-dark/30 hover:border-primary transition-all">
+<span class="text-xs uppercase font-semibold text-slate-500">Lun</span>
+<span class="text-lg font-bold">16</span>
+</button>
+<button class="flex-1 min-w-[70px] flex flex-col items-center p-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-accent-dark/30 hover:border-primary transition-all">
+<span class="text-xs uppercase font-semibold text-slate-500">Mar</span>
+<span class="text-lg font-bold">17</span>
+</button>
+<button class="flex-1 min-w-[70px] flex flex-col items-center p-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-accent-dark/30 hover:border-primary transition-all">
+<span class="text-xs uppercase font-semibold text-slate-500">Mié</span>
+<span class="text-lg font-bold">18</span>
+</button>
+<button class="flex-1 min-w-[70px] flex flex-col items-center p-3 rounded-xl bg-primary text-background-dark shadow-lg shadow-primary/20 transition-all">
+<span class="text-xs uppercase font-bold opacity-80">Jue</span>
+<span class="text-lg font-black">19</span>
+</button>
+<button class="flex-1 min-w-[70px] flex flex-col items-center p-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-accent-dark/30 hover:border-primary transition-all">
+<span class="text-xs uppercase font-semibold text-slate-500">Vie</span>
+<span class="text-lg font-bold">20</span>
+</button>
+<button class="flex-1 min-w-[70px] flex flex-col items-center p-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-accent-dark/30 hover:border-primary transition-all">
+<span class="text-xs uppercase font-semibold text-slate-500">Sáb</span>
+<span class="text-lg font-bold">21</span>
+</button>
+<button class="flex-1 min-w-[70px] flex flex-col items-center p-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-accent-dark/30 hover:border-primary transition-all">
+<span class="text-xs uppercase font-semibold text-slate-500">Dom</span>
+<span class="text-lg font-bold">22</span>
+</button>
+</div>
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mt-6">
+<h2 class="text-lg font-bold">Jueves, 19 de Marzo 2026</h2>
+<div class="flex items-center gap-3">
+<div class="relative">
+<select class="appearance-none bg-white dark:bg-accent-dark border border-slate-200 dark:border-slate-800 rounded-lg px-4 py-2 pr-10 text-sm font-medium focus:ring-primary focus:border-primary outline-none">
+<option>Todas las canchas</option>
+<option>Pista 1 — Exterior</option>
+<option>Pista 2 — Exterior</option>
+<option>Pista 3 — Interior Cristal</option>
+<option>Pista 4 — Interior Cristal</option>
+<option>Pista 5 — Panorámica</option>
+<option>Pista 6 — Muro</option>
+<option>Pista 7 — Kids</option>
+<option>Pista 8 — Individual</option>
+<option>Pista 9 — Premium</option>
+<option>Pista 10 — VIP</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">expand_more</span>
+</div>
+<div class="flex p-1 bg-slate-100 dark:bg-accent-dark rounded-lg">
+<button class="px-4 py-1.5 text-xs font-bold rounded-md bg-white dark:bg-primary dark:text-background-dark shadow-sm">90 min</button>
+<button class="px-4 py-1.5 text-xs font-bold rounded-md text-slate-500 dark:text-slate-400">2h</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Time Slots Grid -->
+<div class="space-y-8">
+<!-- Morning -->
+<section>
+<h3 class="flex items-center gap-2 text-sm font-bold text-slate-500 dark:text-slate-400 mb-4">
+<span class="material-symbols-outlined text-lg">light_mode</span> Mañana
+                        </h3>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+<div class="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-accent-dark/20 opacity-50 flex flex-col">
+<span class="text-sm font-bold">08:00 - 09:30</span>
+<span class="text-xs text-slate-400 mt-1">Ocupado</span>
+</div>
+<button class="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-accent-dark/40 hover:border-primary transition-all text-left flex flex-col group">
+<span class="text-sm font-bold group-hover:text-primary">09:30 - 11:00</span>
+<span class="text-xs text-slate-500 mt-1">4 Pistas libres</span>
+</button>
+<button class="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-accent-dark/40 hover:border-primary transition-all text-left flex flex-col group">
+<span class="text-sm font-bold group-hover:text-primary">11:00 - 12:30</span>
+<span class="text-xs text-slate-500 mt-1">2 Pistas libres</span>
+</button>
+<div class="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-accent-dark/20 opacity-50 flex flex-col">
+<span class="text-sm font-bold">12:30 - 14:00</span>
+<span class="text-xs text-slate-400 mt-1">Ocupado</span>
+</div>
+</div>
+</section>
+<!-- Afternoon -->
+<section>
+<h3 class="flex items-center gap-2 text-sm font-bold text-slate-500 dark:text-slate-400 mb-4">
+<span class="material-symbols-outlined text-lg">wb_sunny</span> Tarde
+                        </h3>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+<button class="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-accent-dark/40 hover:border-primary transition-all text-left flex flex-col group">
+<span class="text-sm font-bold group-hover:text-primary">14:00 - 15:30</span>
+<span class="text-xs text-slate-500 mt-1">6 Pistas libres</span>
+</button>
+<button class="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-accent-dark/40 hover:border-primary transition-all text-left flex flex-col group">
+<span class="text-sm font-bold group-hover:text-primary">15:30 - 17:00</span>
+<span class="text-xs text-slate-500 mt-1">1 Pista libre</span>
+</button>
+<button class="p-4 rounded-xl border-2 border-primary bg-primary/10 shadow-lg shadow-primary/5 text-left flex flex-col relative">
+<span class="text-sm font-bold text-primary">18:00 - 19:30</span>
+<span class="text-xs text-primary/80 mt-1 font-medium">Pista 3 Seleccionada</span>
+<span class="material-symbols-outlined absolute top-2 right-2 text-primary text-sm">check_circle</span>
+</button>
+<button class="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-accent-dark/40 hover:border-primary transition-all text-left flex flex-col group">
+<span class="text-sm font-bold group-hover:text-primary">18:30 - 20:00</span>
+<span class="text-xs text-slate-500 mt-1">3 Pistas libres</span>
+</button>
+</div>
+</section>
+<!-- Evening -->
+<section>
+<h3 class="flex items-center gap-2 text-sm font-bold text-slate-500 dark:text-slate-400 mb-4">
+<span class="material-symbols-outlined text-lg">dark_mode</span> Noche
+                        </h3>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+<button class="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-accent-dark/40 hover:border-primary transition-all text-left flex flex-col group">
+<span class="text-sm font-bold group-hover:text-primary">20:00 - 21:30</span>
+<span class="text-xs text-slate-500 mt-1">2 Pistas libres</span>
+</button>
+<button class="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-accent-dark/40 hover:border-primary transition-all text-left flex flex-col group">
+<span class="text-sm font-bold group-hover:text-primary">20:30 - 22:00</span>
+<span class="text-xs text-slate-500 mt-1">5 Pistas libres</span>
+</button>
+</div>
+</section>
+</div>
+</div>
+<!-- RIGHT COLUMN: Booking Summary -->
+<div class="lg:w-1/3">
+<div class="bg-card-dark rounded-2xl p-6 border border-slate-800 sticky top-24 shadow-2xl">
+<h2 class="text-xl font-bold mb-6">Resumen de reserva</h2>
+<div class="space-y-4 mb-8">
+<div class="flex justify-between items-start">
+<div class="flex gap-3">
+<span class="material-symbols-outlined text-slate-400">location_on</span>
+<div>
+<p class="text-xs text-slate-400 uppercase font-bold">Cancha</p>
+<p class="text-sm font-semibold">Pista 3 — Interior Cristal</p>
+</div>
+</div>
+</div>
+<div class="flex justify-between items-start">
+<div class="flex gap-3">
+<span class="material-symbols-outlined text-slate-400">calendar_today</span>
+<div>
+<p class="text-xs text-slate-400 uppercase font-bold">Fecha</p>
+<p class="text-sm font-semibold">Jueves 19 Mar 2026</p>
+</div>
+</div>
+</div>
+<div class="flex justify-between items-start">
+<div class="flex gap-3">
+<span class="material-symbols-outlined text-slate-400">schedule</span>
+<div>
+<p class="text-xs text-slate-400 uppercase font-bold">Hora</p>
+<p class="text-sm font-semibold text-primary">18:00 - 19:30 (90 min)</p>
+</div>
+</div>
+</div>
+</div>
+<div class="border-t border-slate-800 pt-6 mb-8">
+<label class="block text-sm font-bold mb-3">Añadir Jugadores</label>
+<div class="relative mb-2">
+<input class="w-full bg-accent-dark border border-slate-700 rounded-lg py-3 px-4 pl-11 text-sm outline-none focus:ring-1 focus:ring-primary focus:border-primary" placeholder="Invitar jugadores por nombre o email" type="text"/>
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-500">person_add</span>
+</div>
+<p class="text-xs text-slate-500 italic">Máximo 3 jugadores adicionales</p>
+</div>
+<div class="bg-accent-dark/50 rounded-xl p-4 mb-8">
+<p class="text-xs text-slate-400 uppercase font-bold mb-3">Método de pago</p>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-8 h-5 bg-slate-700 rounded-sm flex items-center justify-center text-[10px] font-bold">VISA</div>
+<span class="text-sm font-medium">Ending in 4242</span>
+</div>
+<button class="text-primary text-xs font-bold hover:underline">Cambiar</button>
+</div>
+</div>
+<div class="flex items-center justify-between mb-8">
+<span class="text-lg font-bold">Total</span>
+<span class="text-2xl font-black text-primary">€22.00</span>
+</div>
+<button class="w-full bg-primary hover:bg-primary/90 text-background-dark font-black py-4 rounded-xl text-lg transition-transform active:scale-95 mb-4" onclick="window.location.href='12_mis_reservas.html'">
+                        Confirmar reserva
+                    </button>
+<p class="text-center text-[11px] text-slate-500 px-4 leading-relaxed">
+<span class="material-symbols-outlined text-[12px] align-middle mr-1">info</span>
+                        Política de cancelación: Reembolso completo hasta 24h antes del inicio de la reserva.
+                    </p>
+</div>
+</div>
+</div>
+</main>
+<footer class="mt-20 border-t border-slate-200 dark:border-slate-800 py-10">
+<div class="max-w-7xl mx-auto px-4 text-center">
+<div class="flex items-center justify-center gap-2 text-primary/50 mb-4">
+<span class="material-symbols-outlined text-2xl font-bold">sports_tennis</span>
+<span class="text-lg font-black tracking-tighter">PadelPro</span>
+</div>
+<p class="text-sm text-slate-500">© 2026 PadelPro S.L. Todos los derechos reservados.</p>
+</div>
+</footer>
+</body></html>

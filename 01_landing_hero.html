@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#00e677",
+                        "background-light": "#f5f8f7",
+                        "background-dark": "#0f1117",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .grid-pattern {
+            background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.05) 1px, transparent 0);
+            background-size: 40px 40px;
+        }
+        .court-gradient {
+            background: linear-gradient(135deg, rgba(0, 230, 119, 0.1) 0%, rgba(15, 17, 23, 0) 100%);
+        }
+    </style>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 antialiased overflow-x-hidden">
+<div class="relative min-h-screen flex flex-col">
+<!-- Grid Pattern Overlay -->
+<div class="absolute inset-0 grid-pattern pointer-events-none"></div>
+<!-- Navbar -->
+<header class="relative z-10 w-full px-6 lg:px-12 py-6 border-b border-slate-200/10 backdrop-blur-md">
+<nav class="max-w-7xl mx-auto flex items-center justify-between">
+<!-- Logo -->
+<a class="flex items-center gap-2 group cursor-pointer" href="01_landing_hero.html">
+<div class="bg-primary p-1.5 rounded-lg">
+<span class="material-symbols-outlined text-background-dark font-bold">sports_tennis</span>
+</div>
+<span class="text-2xl font-black tracking-tighter text-slate-900 dark:text-white uppercase">PadelPro</span>
+</a>
+<!-- Navigation Links -->
+<div class="hidden md:flex items-center gap-10">
+<a class="text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors" href="02_features_pricing.html">Características</a>
+<a class="text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors" href="02_features_pricing.html#precios">Precios</a>
+<a class="text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors" href="#">Contacto</a>
+</div>
+<!-- Auth Actions -->
+<div class="flex items-center gap-4">
+<button class="px-5 py-2 text-sm font-bold text-slate-900 dark:text-white hover:opacity-80 transition-opacity" onclick="window.location.href='03_admin_login.html'">Iniciar sesión</button>
+<button class="bg-primary text-background-dark px-6 py-2.5 rounded-lg text-sm font-bold shadow-[0_0_20px_rgba(0,230,119,0.3)] hover:scale-105 transition-transform" onclick="window.location.href='09_portal_login.html'">
+                        Comenzar gratis
+                    </button>
+</div>
+</nav>
+</header>
+<!-- Hero Content -->
+<main class="relative z-10 flex-grow flex flex-col justify-center max-w-7xl mx-auto px-6 lg:px-12 pt-12 lg:pt-20">
+<div class="grid lg:grid-cols-12 gap-12 items-center">
+<!-- Left: Text content -->
+<div class="lg:col-span-6 flex flex-col gap-8">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 w-fit">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+</span>
+<span class="text-xs font-bold text-primary uppercase tracking-wider">Nuevo: Modo Torneo v2.0</span>
+</div>
+<h1 class="text-5xl lg:text-7xl font-black leading-[1.1] tracking-tight text-slate-900 dark:text-white">
+                        Gestiona tus canchas de pádel con <span class="text-primary">inteligencia</span>
+</h1>
+<p class="text-xl text-slate-600 dark:text-slate-400 leading-relaxed max-w-xl">
+                        La plataforma todo-en-uno para administrar reservas, jugadores y finanzas de tu club con la tecnología más avanzada del mercado.
+                    </p>
+<div class="flex flex-wrap gap-4 pt-4">
+<button class="bg-primary text-background-dark px-8 py-4 rounded-xl text-lg font-bold shadow-[0_0_30px_rgba(0,230,119,0.2)] hover:scale-105 transition-transform flex items-center gap-2" onclick="window.location.href='09_portal_login.html'">
+                            Comenzar gratis
+                            <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<button class="border border-slate-200 dark:border-slate-800 px-8 py-4 rounded-xl text-lg font-bold hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" onclick="window.location.href='02_features_pricing.html'">
+                            Ver demo
+                        </button>
+</div>
+<div class="flex items-center gap-4 pt-8">
+<div class="flex -space-x-3">
+<div class="h-10 w-10 rounded-full border-2 border-background-dark bg-slate-800 flex items-center justify-center text-[10px]" data-alt="Avatar user 1">JD</div>
+<div class="h-10 w-10 rounded-full border-2 border-background-dark bg-slate-700 flex items-center justify-center text-[10px]" data-alt="Avatar user 2">AS</div>
+<div class="h-10 w-10 rounded-full border-2 border-background-dark bg-slate-600 flex items-center justify-center text-[10px]" data-alt="Avatar user 3">ML</div>
+</div>
+<p class="text-sm text-slate-500">Únete a +450 clubes que ya confían en nosotros</p>
+</div>
+</div>
+<!-- Right: Mockup UI -->
+<div class="lg:col-span-6 relative">
+<div class="relative bg-slate-900 rounded-2xl border border-slate-800 shadow-2xl overflow-hidden aspect-[4/3] court-gradient">
+<!-- Dashboard Mockup Header -->
+<div class="p-4 border-b border-slate-800 flex items-center justify-between bg-slate-900/50">
+<div class="flex gap-2">
+<div class="w-2 h-2 rounded-full bg-red-500"></div>
+<div class="w-2 h-2 rounded-full bg-yellow-500"></div>
+<div class="w-2 h-2 rounded-full bg-green-500"></div>
+</div>
+<div class="text-[10px] text-slate-500 font-mono tracking-widest uppercase">PANEL DE CONTROL - CLUB DE PÁDEL</div>
+</div>
+<!-- Dashboard Mockup Grid -->
+<div class="p-6 grid grid-cols-2 sm:grid-cols-5 gap-3">
+<div class="bg-slate-800/50 border border-red-500/30 rounded-lg p-3 flex flex-col gap-2">
+<span class="text-[10px] text-slate-400">Pista 01</span>
+<div class="h-1 bg-red-500 rounded-full w-full"></div>
+<span class="text-[8px] text-red-400 font-bold">OCUPADA</span>
+</div>
+<div class="bg-slate-800/50 border border-primary/30 rounded-lg p-3 flex flex-col gap-2">
+<span class="text-[10px] text-slate-400">Pista 02</span>
+<div class="h-1 bg-primary rounded-full w-full"></div>
+<span class="text-[8px] text-primary font-bold">LIBRE</span>
+</div>
+<div class="bg-slate-800/50 border border-red-500/30 rounded-lg p-3 flex flex-col gap-2">
+<span class="text-[10px] text-slate-400">Pista 03</span>
+<div class="h-1 bg-red-500 rounded-full w-full"></div>
+<span class="text-[8px] text-red-400 font-bold">OCUPADA</span>
+</div>
+<div class="bg-slate-800/50 border border-primary/30 rounded-lg p-3 flex flex-col gap-2">
+<span class="text-[10px] text-slate-400">Pista 04</span>
+<div class="h-1 bg-primary rounded-full w-full"></div>
+<span class="text-[8px] text-primary font-bold">LIBRE</span>
+</div>
+<div class="bg-slate-800/50 border border-red-500/30 rounded-lg p-3 flex flex-col gap-2">
+<span class="text-[10px] text-slate-400">Pista 05</span>
+<div class="h-1 bg-red-500 rounded-full w-full"></div>
+<span class="text-[8px] text-red-400 font-bold">OCUPADA</span>
+</div>
+<div class="bg-slate-800/50 border border-red-500/30 rounded-lg p-3 flex flex-col gap-2">
+<span class="text-[10px] text-slate-400">Pista 06</span>
+<div class="h-1 bg-red-500 rounded-full w-full"></div>
+<span class="text-[8px] text-red-400 font-bold">OCUPADA</span>
+</div>
+<div class="bg-slate-800/50 border border-primary/30 rounded-lg p-3 flex flex-col gap-2">
+<span class="text-[10px] text-slate-400">Pista 07</span>
+<div class="h-1 bg-primary rounded-full w-full"></div>
+<span class="text-[8px] text-primary font-bold">LIBRE</span>
+</div>
+<div class="bg-slate-800/50 border border-primary/30 rounded-lg p-3 flex flex-col gap-2">
+<span class="text-[10px] text-slate-400">Pista 08</span>
+<div class="h-1 bg-primary rounded-full w-full"></div>
+<span class="text-[8px] text-primary font-bold">LIBRE</span>
+</div>
+<div class="bg-slate-800/50 border border-primary/30 rounded-lg p-3 flex flex-col gap-2">
+<span class="text-[10px] text-slate-400">Pista 09</span>
+<div class="h-1 bg-primary rounded-full w-full"></div>
+<span class="text-[8px] text-primary font-bold">LIBRE</span>
+</div>
+<div class="bg-slate-800/50 border border-red-500/30 rounded-lg p-3 flex flex-col gap-2">
+<span class="text-[10px] text-slate-400">Pista 10</span>
+<div class="h-1 bg-red-500 rounded-full w-full"></div>
+<span class="text-[8px] text-red-400 font-bold">OCUPADA</span>
+</div>
+</div>
+<!-- Mini Chart -->
+<div class="mt-4 px-6 pb-6">
+<div class="bg-slate-800/30 rounded-lg p-4 flex flex-col gap-2 border border-slate-800">
+<div class="flex justify-between items-center mb-2">
+<span class="text-[10px] font-bold text-slate-300">INGRESOS SEMANALES</span>
+<span class="text-[10px] text-primary">↑ 12.5%</span>
+</div>
+<div class="flex items-end gap-1 h-20">
+<div class="bg-slate-700 w-full rounded-t-sm h-[40%]"></div>
+<div class="bg-slate-700 w-full rounded-t-sm h-[60%]"></div>
+<div class="bg-primary w-full rounded-t-sm h-[90%]"></div>
+<div class="bg-slate-700 w-full rounded-t-sm h-[50%]"></div>
+<div class="bg-slate-700 w-full rounded-t-sm h-[75%]"></div>
+<div class="bg-slate-700 w-full rounded-t-sm h-[45%]"></div>
+<div class="bg-slate-700 w-full rounded-t-sm h-[85%]"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="absolute -z-10 -bottom-10 -right-10 w-64 h-64 bg-primary/20 blur-[100px] rounded-full"></div>
+<div class="absolute -z-10 -top-10 -left-10 w-64 h-64 bg-primary/10 blur-[100px] rounded-full"></div>
+</div>
+</div>
+<!-- Stats Bar -->
+<div class="mt-20 lg:mt-32 border-t border-slate-200/5 py-12">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="flex items-center gap-6 p-6 rounded-2xl bg-slate-900/40 border border-slate-800/50 backdrop-blur-sm">
+<div class="size-14 rounded-xl bg-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-3xl">stadium</span>
+</div>
+<div class="flex flex-col">
+<span class="text-3xl font-black text-white">10</span>
+<span class="text-slate-400 font-medium uppercase tracking-widest text-[10px]">Canchas Inteligentes</span>
+</div>
+</div>
+<div class="flex items-center gap-6 p-6 rounded-2xl bg-slate-900/40 border border-slate-800/50 backdrop-blur-sm">
+<div class="size-14 rounded-xl bg-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-3xl">groups</span>
+</div>
+<div class="flex flex-col">
+<span class="text-3xl font-black text-white">500+</span>
+<span class="text-slate-400 font-medium uppercase tracking-widest text-[10px]">Jugadores Activos</span>
+</div>
+</div>
+<div class="flex items-center gap-6 p-6 rounded-2xl bg-slate-900/40 border border-slate-800/50 backdrop-blur-sm">
+<div class="size-14 rounded-xl bg-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-3xl">trending_up</span>
+</div>
+<div class="flex flex-col">
+<span class="text-3xl font-black text-white">98%</span>
+<span class="text-slate-400 font-medium uppercase tracking-widest text-[10px]">Ocupación Promedio</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<div class="h-32 w-full mt-auto opacity-20" style="background: radial-gradient(50% 50% at 50% 100%, rgba(0,230,119,0.3) 0%, rgba(0,230,119,0) 100%);"></div>
+</div>
+</body></html>

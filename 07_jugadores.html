@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#00e677",
+                        "background-light": "#f5f8f7",
+                        "background-dark": "#0f1117",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<title>PadelPro Admin - Jugadores</title>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased">
+<div class="flex min-h-screen">
+<!-- Sidebar -->
+<aside class="w-64 shrink-0 border-r border-slate-200 dark:border-slate-800 flex flex-col justify-between p-4 bg-background-light dark:bg-background-dark">
+<div class="flex flex-col gap-8">
+<div class="flex items-center gap-3 px-2">
+<div class="size-10 rounded-lg bg-primary flex items-center justify-center text-slate-900">
+<span class="material-symbols-outlined font-bold">sports_tennis</span>
+</div>
+<div>
+<h1 class="text-xl font-bold leading-none tracking-tight">PadelPro</h1>
+<p class="text-xs text-slate-500 dark:text-slate-400">Admin Panel</p>
+</div>
+</div>
+<nav class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="04_dashboard_kpis.html">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="05_gestion_canchas.html">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="text-sm font-medium">Canchas</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined">calendar_month</span>
+<span class="text-sm font-medium">Reservas</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary/10 text-primary" href="07_jugadores.html">
+<span class="material-symbols-outlined fill-1">group</span>
+<span class="text-sm font-bold">Jugadores</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="06_finanzas.html">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span class="text-sm font-medium">Finanzas</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="08_configuracion.html">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-sm font-medium">Configuración</span>
+</a>
+</nav>
+</div>
+<div class="border-t border-slate-200 dark:border-slate-800 pt-4 px-2">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center overflow-hidden">
+<img alt="Carlos López" class="w-full h-full object-cover" data-alt="Admin user avatar Carlos Lopez" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjfVnWpHIz18IM8wtCiiiru4APo1z9LWHw4fAyfYpjIZdJFlhq6qvd4tO9qTq9a5Qgucdt9-zQyF3MAqTgJbZ1-9RSsk3L2jhmKfvGJYn8GkJROPtzFiUL7fEo6cRL4MIHBr6yhd7hJlf2QsawozZ8q5c2CEpyAkF3mGIa6jMgOla9eTri7ruPcdyTqMOlictf6JcZG99TLQfIMIM5kMD7oGutkJB37QW-yd2-0BygnzjtOvjGgYnprCwuQJl7Zj_rPB3E21uZUiU"/>
+</div>
+<div class="flex-1 min-w-0">
+<p class="text-sm font-bold truncate">Carlos López</p>
+<p class="text-xs text-slate-500 dark:text-slate-400 truncate">Super Admin</p>
+</div>
+<span class="material-symbols-outlined text-slate-400 text-sm">more_vert</span>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 overflow-y-auto bg-slate-50/50 dark:bg-background-dark p-8">
+<!-- Header -->
+<div class="flex justify-between items-center mb-8">
+<div>
+<h2 class="text-3xl font-black tracking-tight">Jugadores &amp; Suscriptores</h2>
+<p class="text-slate-500 dark:text-slate-400 mt-1">Gestiona la base de datos de usuarios y membresías.</p>
+</div>
+<button class="flex items-center gap-2 bg-primary hover:bg-primary/90 text-slate-900 px-5 py-2.5 rounded-xl font-bold transition-all shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined">person_add</span>
+                    Añadir Jugador
+                </button>
+</div>
+<!-- Stats Row -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+<div class="bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 p-6 rounded-2xl">
+<p class="text-sm font-medium text-slate-500 dark:text-slate-400 mb-1">Total Jugadores</p>
+<div class="flex items-end justify-between">
+<h3 class="text-3xl font-bold">487</h3>
+<span class="text-primary text-xs font-bold bg-primary/10 px-2 py-1 rounded-full">+12%</span>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 p-6 rounded-2xl">
+<p class="text-sm font-medium text-slate-500 dark:text-slate-400 mb-1">Suscriptores Activos</p>
+<div class="flex items-end justify-between">
+<h3 class="text-3xl font-bold">124</h3>
+<span class="text-primary text-xs font-bold bg-primary/10 px-2 py-1 rounded-full">25% total</span>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 p-6 rounded-2xl">
+<p class="text-sm font-medium text-slate-500 dark:text-slate-400 mb-1">Nuevos este mes</p>
+<div class="flex items-end justify-between">
+<h3 class="text-3xl font-bold">28</h3>
+<span class="text-blue-500 text-xs font-bold bg-blue-500/10 px-2 py-1 rounded-full">En meta</span>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 p-6 rounded-2xl">
+<p class="text-sm font-medium text-slate-500 dark:text-slate-400 mb-1">Nivel Promedio</p>
+<div class="flex items-end justify-between">
+<h3 class="text-3xl font-bold">3.2</h3>
+<div class="flex text-primary">
+<span class="material-symbols-outlined text-sm fill-1">star</span>
+<span class="material-symbols-outlined text-sm fill-1">star</span>
+<span class="material-symbols-outlined text-sm fill-1">star</span>
+<span class="material-symbols-outlined text-sm">star_half</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Filters & Search -->
+<div class="flex flex-col md:flex-row gap-4 mb-6">
+<div class="flex-1 relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+<input class="w-full bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 rounded-xl pl-10 pr-4 py-2.5 focus:ring-primary focus:border-primary text-sm" placeholder="Buscar por nombre, email o teléfono..." type="text"/>
+</div>
+<div class="flex gap-3">
+<select class="bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 rounded-xl px-4 py-2.5 text-sm focus:ring-primary">
+<option>Nivel (Todos)</option>
+<option>1.0 - 2.0</option>
+<option>2.5 - 3.5</option>
+<option>4.0 - 5.0</option>
+</select>
+<select class="bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 rounded-xl px-4 py-2.5 text-sm focus:ring-primary">
+<option>Suscripción</option>
+<option>Pro</option>
+<option>Básico</option>
+<option>Sin plan</option>
+</select>
+<select class="bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 rounded-xl px-4 py-2.5 text-sm focus:ring-primary">
+<option>Estado</option>
+<option>Activo</option>
+<option>Inactivo</option>
+</select>
+</div>
+</div>
+<!-- Table -->
+<div class="bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden shadow-sm">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/50">
+<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Jugador</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Contacto</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Nivel</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Plan</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider text-center">Reservas (Mes)</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Estado</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider"></th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100 dark:divide-slate-800">
+<!-- Row 1 -->
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<img alt="" class="size-10 rounded-full border border-slate-200 dark:border-slate-700" data-alt="Alejandro Garcia profile picture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuClv-LyZ9ObsA1DfkR6rcpoztVspsa-GZ9-M4LG5jmy2J5-xy3hmI17z1JSJZhCviMV82rZo1g_oh9x3gUhv27IkzmFCMTFUttNAJujgepXlzqWl0zbyFq4NQPAKTxHw-ijaTno3OQahTKplA4odQXs9sOOmGwmda2CqdJOBXU_V-E3qEKVApTKRXAu_XCSf7glDp_vg3lwNoLm6bW57BqaTywpK5bjfn97sRimB6JvS5T7n6YSkKByrYFr9oStWTNo3xJCZD2jwfw"/>
+<span class="font-bold text-sm">Alejandro García</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="text-xs">
+<p class="text-slate-900 dark:text-slate-100">ale.garcia@email.com</p>
+<p class="text-slate-500">+34 612 345 678</p>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-primary/20 text-primary text-xs font-bold">4.5</span>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-1 rounded-full bg-primary/10 text-primary text-[10px] font-black uppercase tracking-tight border border-primary/20">Pro Member</span>
+</td>
+<td class="px-6 py-4 text-center text-sm font-medium">12</td>
+<td class="px-6 py-4">
+<span class="flex items-center gap-1.5 text-xs font-medium text-primary">
+<span class="size-2 rounded-full bg-primary"></span> Activo
+                                    </span>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-2 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-lg text-slate-500">
+<span class="material-symbols-outlined text-lg">visibility</span>
+</button>
+<button class="p-2 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-lg text-slate-500">
+<span class="material-symbols-outlined text-lg">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors group bg-slate-50/30 dark:bg-slate-800/10">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<img alt="" class="size-10 rounded-full border border-slate-200 dark:border-slate-700" data-alt="Maria Rodriguez profile picture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8xrowpTkngF6VoPowwmFbOtZ_ZK_sne_RREHtAyeplZbtUi-CFiLXfqoFdiN0uw_-p-z2u7H0QMQhFfj5Ce-jgyEbtkkO5ZHycmpZ48XmmmatC0nBEps1fP4w3AMA-Fby_1ONjiiE-YUYqdKc51cbuKWW0C2poj7bAjwtWfa-ULYMse6CiN1se1_4g4uYVx-IVF6ADX3kZwQpU36ufyDSfuazbJ6gbca7kZPkoMEU0vdcV0aUH6oqEjfnbcXX0G-NNo8eeNrlXJQ"/>
+<span class="font-bold text-sm">María Rodriguez</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="text-xs">
+<p class="text-slate-900 dark:text-slate-100">m.rodriguez@email.com</p>
+<p class="text-slate-500">+34 655 890 123</p>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs font-bold">2.5</span>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-1 rounded-full bg-slate-200 dark:bg-slate-800 text-slate-500 text-[10px] font-black uppercase tracking-tight">Sin Plan</span>
+</td>
+<td class="px-6 py-4 text-center text-sm font-medium">4</td>
+<td class="px-6 py-4">
+<span class="flex items-center gap-1.5 text-xs font-medium text-primary">
+<span class="size-2 rounded-full bg-primary"></span> Activo
+                                    </span>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-2 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-lg text-slate-500">
+<span class="material-symbols-outlined text-lg">visibility</span>
+</button>
+<button class="p-2 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-lg text-slate-500">
+<span class="material-symbols-outlined text-lg">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<img alt="" class="size-10 rounded-full border border-slate-200 dark:border-slate-700" data-alt="Javier Lopez profile picture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCF0ejIB8QfTF3OACMWL7aETy3vg17dzNRgXe5eXMpOZktP4rnbpP9_rKsk8zjLVsFjUIUDV5m1j47qJtrYXZa9nR6fF8dDJBuM6Y-Q1jVn8aWMyoQPmE61hVglaA1u4PJs2fPn3cOXCwvVs7Ly0ZBZFB8QVcN6Z9iwfmIvy7SdGhCwug1EWlK9gKQcUTafQm2DiwKI3LxE2nNIN1kJ8sgGG1Nw8Dt3R1VZlTGrfCv5eLXJIc-ROuPtadpKtkNbYVC8AdM3YtQr6v4"/>
+<span class="font-bold text-sm">Javier López</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="text-xs">
+<p class="text-slate-900 dark:text-slate-100">javier.lopez@email.com</p>
+<p class="text-slate-500">+34 677 231 445</p>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-primary/20 text-primary text-xs font-bold">3.5</span>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-1 rounded-full bg-blue-500/10 text-blue-500 text-[10px] font-black uppercase tracking-tight border border-blue-500/20">Básico</span>
+</td>
+<td class="px-6 py-4 text-center text-sm font-medium">8</td>
+<td class="px-6 py-4">
+<span class="flex items-center gap-1.5 text-xs font-medium text-slate-400">
+<span class="size-2 rounded-full bg-slate-400"></span> Inactivo
+                                    </span>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-2 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-lg text-slate-500">
+<span class="material-symbols-outlined text-lg">visibility</span>
+</button>
+<button class="p-2 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-lg text-slate-500">
+<span class="material-symbols-outlined text-lg">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- More rows for 10 total... (Simulated) -->
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors group bg-slate-50/30 dark:bg-slate-800/10">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<img alt="" class="size-10 rounded-full border border-slate-200 dark:border-slate-700" data-alt="Carmen Soler profile picture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKjgkjDNI1IhfbUzd44M4SATDhS2UY1DH6wsIlDALx7BH4c4iL8sh7khdDTODGXizpyquea2MFrlMCRALMMxE2-2MmKlHripCN9ApAdOiFiSRew9RG2w0ZoKFn77vTSAKtgALN39eGy1P5mSdQfLSwZClLcEXH1PYPFM9cLQxd0xGYXctPDf-YCBrCEfX-KDGY7YhYdb0tj5E8Ypjihyb_xCzvJH-2N2qH8RfdBcAqeTxfo-d91_xWzXb_FQhfpYG13bh-xmdwAwo"/>
+<span class="font-bold text-sm">Carmen Soler</span>
+</div>
+</td>
+<td class="px-6 py-4"><div class="text-xs"><p>c.soler@email.com</p><p class="text-slate-500">+34 600 111 222</p></div></td>
+<td class="px-6 py-4"><span class="px-2 py-0.5 rounded bg-primary/20 text-primary text-xs font-bold">5.0</span></td>
+<td class="px-6 py-4"><span class="px-2.5 py-1 rounded-full bg-primary/10 text-primary text-[10px] font-black">Pro Member</span></td>
+<td class="px-6 py-4 text-center text-sm font-medium">18</td>
+<td class="px-6 py-4"><span class="flex items-center gap-1.5 text-xs font-medium text-primary"><span class="size-2 rounded-full bg-primary"></span> Activo</span></td>
+<td class="px-6 py-4 text-right group-hover:opacity-100 opacity-0"><button class="p-2"><span class="material-symbols-outlined">more_vert</span></button></td>
+</tr>
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<img alt="" class="size-10 rounded-full border border-slate-200 dark:border-slate-700" data-alt="Diego Martinez profile picture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAgqfgjjkc3_TQKilbaP2Jg633Y5yT2I9faAWrjJEWknDU-Y08AT_BK9yhhFp5nZLERgn3jMat58eg3n-OMf8pRQ8XzpjhUz3gaejjGXwnK8jnStRFA4eMXz9QRBBWELyIBko9z48-RRHpy5EN_qy0UD3jLe2OwGNFOMuK9KD3gnBYk0_mRyOEhgsWo4hMi5UDW02AoPwsmrq9jpA14OmK2fLpOEij92sEmDbqzLCJV0SHmt_BQ-DzJsnvFXyxwUiw-QoG2L6I8xk"/>
+<span class="font-bold text-sm">Diego Martínez</span>
+</div>
+</td>
+<td class="px-6 py-4"><div class="text-xs"><p>diego.mtz@email.com</p><p class="text-slate-500">+34 633 444 555</p></div></td>
+<td class="px-6 py-4"><span class="px-2 py-0.5 rounded bg-slate-200 dark:bg-slate-700 text-xs font-bold">1.5</span></td>
+<td class="px-6 py-4"><span class="px-2.5 py-1 rounded-full bg-slate-200 dark:bg-slate-800 text-slate-500 text-[10px] font-black">Sin Plan</span></td>
+<td class="px-6 py-4 text-center text-sm font-medium">1</td>
+<td class="px-6 py-4"><span class="flex items-center gap-1.5 text-xs font-medium text-primary"><span class="size-2 rounded-full bg-primary"></span> Activo</span></td>
+<td class="px-6 py-4 text-right group-hover:opacity-100 opacity-0"><button class="p-2"><span class="material-symbols-outlined">more_vert</span></button></td>
+</tr>
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors group bg-slate-50/30 dark:bg-slate-800/10">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<img alt="" class="size-10 rounded-full border border-slate-200 dark:border-slate-700" data-alt="Elena Gomez profile picture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-_Rpez24-fe-BK_snxDx6UFht2WZcP7ookiUoUUcho67uDO5lhr0VH1e_MoZcQePmchjMHFVpNGnrdIipmA3NBB6qI83gQNZ5X1rEsVOmE95WmDhToA6Oiq0nv9vcvObFWBhJ2LWJaY7HiykGq5rzAcBl_MxFDEcynI52EC414i3JNlrLqyLnpmflzsS35w6ldufxJsv9GxlK49QAz40VQrR5wAF62QqhwI7VDt9f1x5nsR9XTVNfVYD2wiHeoSUN6AGEya4Apv8"/>
+<span class="font-bold text-sm">Elena Gómez</span>
+</div>
+</td>
+<td class="px-6 py-4"><div class="text-xs"><p>e.gomez@email.com</p><p class="text-slate-500">+34 611 222 333</p></div></td>
+<td class="px-6 py-4"><span class="px-2 py-0.5 rounded bg-primary/20 text-primary text-xs font-bold">3.0</span></td>
+<td class="px-6 py-4"><span class="px-2.5 py-1 rounded-full bg-blue-500/10 text-blue-500 text-[10px] font-black">Básico</span></td>
+<td class="px-6 py-4 text-center text-sm font-medium">6</td>
+<td class="px-6 py-4"><span class="flex items-center gap-1.5 text-xs font-medium text-primary"><span class="size-2 rounded-full bg-primary"></span> Activo</span></td>
+<td class="px-6 py-4 text-right group-hover:opacity-100 opacity-0"><button class="p-2"><span class="material-symbols-outlined">more_vert</span></button></td>
+</tr>
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<img alt="" class="size-10 rounded-full border border-slate-200 dark:border-slate-700" data-alt="Roberto Ruiz profile picture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUDpaFriTHAgIoBfKrlUMk5S9QEPxakT1sOSqFBNR95fYfHXpq_q8eN5sedl7zBmxIPsWmRO57ffHD56ljEKDsZ4B9cslnmW1aidbrQ2A5C9TQbNviwpX1QjvKNaMJsu8o8xaZ8RwVnNWVeK8hPQLbOrp5AbohirT1-1fN1fZF2m7dHm2Hh_bEClnqHBJ9KxVsOkHeWvOatl2fTorfN9M-ezIgCwpOGn3VGXiZiGZrVHJWIDo4nceBExQoW8x0DrQckdfczOSdSAc"/>
+<span class="font-bold text-sm">Roberto Ruiz</span>
+</div>
+</td>
+<td class="px-6 py-4"><div class="text-xs"><p>roberto.ruiz@email.com</p><p class="text-slate-500">+34 699 888 777</p></div></td>
+<td class="px-6 py-4"><span class="px-2 py-0.5 rounded bg-primary/20 text-primary text-xs font-bold">4.0</span></td>
+<td class="px-6 py-4"><span class="px-2.5 py-1 rounded-full bg-primary/10 text-primary text-[10px] font-black">Pro Member</span></td>
+<td class="px-6 py-4 text-center text-sm font-medium">9</td>
+<td class="px-6 py-4"><span class="flex items-center gap-1.5 text-xs font-medium text-primary"><span class="size-2 rounded-full bg-primary"></span> Activo</span></td>
+<td class="px-6 py-4 text-right group-hover:opacity-100 opacity-0"><button class="p-2"><span class="material-symbols-outlined">more_vert</span></button></td>
+</tr>
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors group bg-slate-50/30 dark:bg-slate-800/10">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<img alt="" class="size-10 rounded-full border border-slate-200 dark:border-slate-700" data-alt="Sofia Castro profile picture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOclmzuNdLMXWOjgs5NZZaH_UO2AME5u4z6f0a9bMIacgfTkqkkJXacOzwgUiNFY2YmCgLm-d2NtF2VAR0JeMaBqC-sxgqTDBm2xhqZ6nzLrBbH6N0XCyImI7NWjN3NVU94LVA9-qpUckaDe4FwgQBcqZlkZDtqGnTt1Eu8cnBKfSlUZOZvirdbrIyXitSk0VrCIiWGM9WWUVCrhUMYQmFjfanvzRvmoQtSyuXYk6ezbFncjaiKFsZW3E0rB9ffuBV7DdxWHy8mGM"/>
+<span class="font-bold text-sm">Sofia Castro</span>
+</div>
+</td>
+<td class="px-6 py-4"><div class="text-xs"><p>s.castro@email.com</p><p class="text-slate-500">+34 688 555 111</p></div></td>
+<td class="px-6 py-4"><span class="px-2 py-0.5 rounded bg-slate-200 dark:bg-slate-700 text-xs font-bold">2.2</span></td>
+<td class="px-6 py-4"><span class="px-2.5 py-1 rounded-full bg-blue-500/10 text-blue-500 text-[10px] font-black">Básico</span></td>
+<td class="px-6 py-4 text-center text-sm font-medium">3</td>
+<td class="px-6 py-4"><span class="flex items-center gap-1.5 text-xs font-medium text-slate-400"><span class="size-2 rounded-full bg-slate-400"></span> Inactivo</span></td>
+<td class="px-6 py-4 text-right group-hover:opacity-100 opacity-0"><button class="p-2"><span class="material-symbols-outlined">more_vert</span></button></td>
+</tr>
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<img alt="" class="size-10 rounded-full border border-slate-200 dark:border-slate-700" data-alt="Hugo Navarro profile picture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0XGfe1ckE8eDKTpq5taCfQZ2EfnR5QEymJ5cLflrdNQqDTNhh_ZQuU3sZbakCuzwLCUjXGCnrTPyTyzBfNjCggj62Rirr2enbqSnMCNaciFUJc8qwEbDAwwJT72BaFpuJT9KEn_UKUSI4WcEzM9czss2i2FVzcug81QsUncCZ2l9Iwf3lKn-W51n8G1ZCmtQpvpDN2xwBy__J72ifvLOmquwyvnYg2S4ofBOqgmMZ6kufQi1NA-VdwZ7X_uXx9GMLA937ovAf0nY"/>
+<span class="font-bold text-sm">Hugo Navarro</span>
+</div>
+</td>
+<td class="px-6 py-4"><div class="text-xs"><p>h.navarro@email.com</p><p class="text-slate-500">+34 644 333 999</p></div></td>
+<td class="px-6 py-4"><span class="px-2 py-0.5 rounded bg-primary/20 text-primary text-xs font-bold">4.8</span></td>
+<td class="px-6 py-4"><span class="px-2.5 py-1 rounded-full bg-primary/10 text-primary text-[10px] font-black">Pro Member</span></td>
+<td class="px-6 py-4 text-center text-sm font-medium">15</td>
+<td class="px-6 py-4"><span class="flex items-center gap-1.5 text-xs font-medium text-primary"><span class="size-2 rounded-full bg-primary"></span> Activo</span></td>
+<td class="px-6 py-4 text-right group-hover:opacity-100 opacity-0"><button class="p-2"><span class="material-symbols-outlined">more_vert</span></button></td>
+</tr>
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors group bg-slate-50/30 dark:bg-slate-800/10">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<img alt="" class="size-10 rounded-full border border-slate-200 dark:border-slate-700" data-alt="Isabel Torres profile picture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYyZp70pu0USOlP2j61JzDXvoQOAzS5csyQQGID9iCBK3910ZKerqeCCfGGl843MQjEWJGJmp2mu_c2l19g8yGrNsgIdJnsnHpYVPRLfe2lciFgnoEfOubvRii6UxNbBQvGAiG13gejwQfmoMxWP_a7mSdKcyKPGNSOVUuElHU_1ORupEuxD4wZX3U-9c__1WDbKAVSz8ZdHYNSUDqP5pVqFgAKxf93umNuc9uCdFrlOwalo5fusTBlKNmEXflL6QAXCuyUts2z9E"/>
+<span class="font-bold text-sm">Isabel Torres</span>
+</div>
+</td>
+<td class="px-6 py-4"><div class="text-xs"><p>torres.isa@email.com</p><p class="text-slate-500">+34 622 999 000</p></div></td>
+<td class="px-6 py-4"><span class="px-2 py-0.5 rounded bg-slate-200 dark:bg-slate-700 text-xs font-bold">2.8</span></td>
+<td class="px-6 py-4"><span class="px-2.5 py-1 rounded-full bg-blue-500/10 text-blue-500 text-[10px] font-black">Básico</span></td>
+<td class="px-6 py-4 text-center text-sm font-medium">5</td>
+<td class="px-6 py-4"><span class="flex items-center gap-1.5 text-xs font-medium text-primary"><span class="size-2 rounded-full bg-primary"></span> Activo</span></td>
+<td class="px-6 py-4 text-right group-hover:opacity-100 opacity-0"><button class="p-2"><span class="material-symbols-outlined">more_vert</span></button></td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination -->
+<div class="px-6 py-4 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between">
+<p class="text-xs text-slate-500 dark:text-slate-400">Mostrando <span class="font-bold text-slate-900 dark:text-slate-100">1-10</span> de <span class="font-bold text-slate-900 dark:text-slate-100">487</span> jugadores</p>
+<div class="flex gap-2">
+<button class="px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-800 text-sm font-medium hover:bg-slate-100 dark:hover:bg-slate-800 disabled:opacity-50" disabled="">Anterior</button>
+<div class="flex gap-1">
+<button class="size-8 rounded-lg bg-primary text-slate-900 text-sm font-bold">1</button>
+<button class="size-8 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-sm font-medium">2</button>
+<button class="size-8 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-sm font-medium">3</button>
+<span class="size-8 flex items-center justify-center text-slate-400">...</span>
+<button class="size-8 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-sm font-medium">49</button>
+</div>
+<button class="px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-800 text-sm font-medium hover:bg-slate-100 dark:hover:bg-slate-800">Siguiente</button>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

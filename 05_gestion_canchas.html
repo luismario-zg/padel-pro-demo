@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#00e677",
+                        "background-light": "#f5f8f7",
+                        "background-dark": "#0f1117",
+                        "surface-dark": "#1a1d26",
+                        "accent-red": "#ff4d4d",
+                        "accent-orange": "#ffa500",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+    body { font-family: 'Inter', sans-serif; }
+    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    .active-nav { background-color: rgba(0, 230, 119, 0.15); border-left: 4px solid #00e677; }
+</style>
+<title>PadelPro Admin Panel - Gestión de Canchas</title>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased">
+<div class="flex h-screen overflow-hidden">
+<!-- SideNavBar -->
+<aside class="w-64 flex-shrink-0 bg-white dark:bg-surface-dark border-r border-slate-200 dark:border-slate-800 flex flex-col justify-between p-4 h-full">
+<div class="flex flex-col gap-8">
+<div class="flex items-center gap-3 px-2">
+<div class="bg-primary rounded-lg p-1.5 flex items-center justify-center">
+<span class="material-symbols-outlined text-background-dark font-bold">sports_tennis</span>
+</div>
+<div class="flex flex-col">
+<h1 class="text-slate-900 dark:text-white text-lg font-bold leading-none">PadelPro</h1>
+<p class="text-primary text-xs font-medium uppercase tracking-wider">Admin Panel</p>
+</div>
+</div>
+<nav class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-primary/10 transition-colors" href="04_dashboard_kpis.html">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="active-nav flex items-center gap-3 px-3 py-2 rounded-lg text-primary font-semibold" href="05_gestion_canchas.html">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="text-sm font-bold">Canchas</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-primary/10 transition-colors" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="text-sm font-medium">Reservas</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-primary/10 transition-colors" href="07_jugadores.html">
+<span class="material-symbols-outlined">group</span>
+<span class="text-sm font-medium">Jugadores</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-primary/10 transition-colors" href="06_finanzas.html">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span class="text-sm font-medium">Finanzas</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-primary/10 transition-colors" href="08_configuracion.html">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-sm font-medium">Configuración</span>
+</a>
+</nav>
+</div>
+<div class="mt-auto border-t border-primary/10 pt-4">
+<div class="flex items-center gap-3 px-2 mb-4">
+<div class="w-10 h-10 rounded-full bg-primary/20 border border-primary/30 flex items-center justify-center overflow-hidden">
+<div class="w-full h-full bg-cover bg-center" data-alt="Avatar photo of Carlos López admin" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDdTKsh-a44SnmWhsg_F2TiiWjBapNaP0AoxeV3fnJsObfP-nOJEjdJYdnc6SR82MzQKnzHpFfvf6KN1VSUTQFyZZIRabtJjHTuFynW5_fQTrnTRGsRs4cvj8nlnCYVKyzeKV7XD-vL-1WR45ZhiOSLklsagvMqJNgZUKt0vbETUlWx3BpYzZV3PsT5X5QAbk_Sn2Dhw0FBcfTX_GzYYZ7sR6vdQin3UU3EOmgNuZ7RJbRYooasQouYO_Plcp9H-v4HjQGvwTUlcJ8");'></div>
+</div>
+<div class="flex flex-col overflow-hidden">
+<p class="text-sm font-bold truncate">Carlos López</p>
+<p class="text-xs text-primary/70 truncate">Super Admin</p>
+</div>
+</div>
+<button class="w-full flex items-center justify-center gap-2 py-2 rounded-lg bg-red-500/10 text-red-500 hover:bg-red-500 hover:text-white transition-all text-sm font-bold" onclick="window.location.href='03_admin_login.html'">
+<span class="material-symbols-outlined text-sm leading-none">logout</span>
+                    Cerrar Sesión
+                </button>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 overflow-y-auto bg-background-light dark:bg-background-dark p-8">
+<!-- Header -->
+<header class="flex flex-wrap items-center justify-between gap-4 mb-8">
+<h2 class="text-3xl font-black tracking-tight">Gestión de Canchas</h2>
+<button class="flex items-center gap-2 px-6 py-2.5 bg-primary text-background-dark rounded-lg font-bold text-sm shadow-xl shadow-primary/20 hover:scale-[1.02] transition-transform">
+<span class="material-symbols-outlined">add_circle</span>
+                    Añadir Cancha
+                </button>
+</header>
+<!-- Status Strip -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+<div class="bg-white dark:bg-surface-dark p-6 rounded-xl border border-primary/5 shadow-sm">
+<div class="flex justify-between items-start">
+<div>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium uppercase tracking-wider mb-1">Total</p>
+<h3 class="text-3xl font-bold">10</h3>
+</div>
+<span class="material-symbols-outlined text-primary bg-primary/10 p-2 rounded-lg">grid_on</span>
+</div>
+</div>
+<div class="bg-white dark:bg-surface-dark p-6 rounded-xl border border-primary/5 shadow-sm">
+<div class="flex justify-between items-start">
+<div>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium uppercase tracking-wider mb-1">Ocupadas</p>
+<h3 class="text-3xl font-bold text-accent-red">6</h3>
+</div>
+<span class="material-symbols-outlined text-accent-red bg-accent-red/10 p-2 rounded-lg">event_busy</span>
+</div>
+</div>
+<div class="bg-white dark:bg-surface-dark p-6 rounded-xl border border-primary/5 shadow-sm">
+<div class="flex justify-between items-start">
+<div>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium uppercase tracking-wider mb-1">Libres</p>
+<h3 class="text-3xl font-bold text-primary">4</h3>
+</div>
+<span class="material-symbols-outlined text-primary bg-primary/10 p-2 rounded-lg">event_available</span>
+</div>
+</div>
+<div class="bg-white dark:bg-surface-dark p-6 rounded-xl border border-primary/5 shadow-sm">
+<div class="flex justify-between items-start">
+<div>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium uppercase tracking-wider mb-1">Mantenimiento</p>
+<h3 class="text-3xl font-bold text-accent-orange">2</h3>
+</div>
+<span class="material-symbols-outlined text-accent-orange bg-accent-orange/10 p-2 rounded-lg">construction</span>
+</div>
+</div>
+</div>
+<!-- Filter Bar -->
+<div class="flex items-center gap-1 mb-6 border-b border-primary/10">
+<button class="px-6 py-3 border-b-2 border-primary text-primary font-bold text-sm">Todas</button>
+<button class="px-6 py-3 border-b-2 border-transparent text-slate-500 hover:text-slate-300 transition-colors font-medium text-sm">Libres</button>
+<button class="px-6 py-3 border-b-2 border-transparent text-slate-500 hover:text-slate-300 transition-colors font-medium text-sm">Ocupadas</button>
+<button class="px-6 py-3 border-b-2 border-transparent text-slate-500 hover:text-slate-300 transition-colors font-medium text-sm">Mantenimiento</button>
+</div>
+<!-- Court Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 pb-12">
+<!-- Pista 01 (Libre) -->
+<div class="bg-white dark:bg-surface-dark rounded-xl border-t-4 border-primary shadow-lg overflow-hidden flex flex-col h-full">
+<div class="p-5 flex-1">
+<div class="flex justify-between items-start mb-3">
+<span class="px-2.5 py-1 rounded bg-primary/10 text-primary text-[10px] font-bold tracking-widest uppercase">Libre</span>
+<span class="text-slate-400 text-xs italic">Cristal</span>
+</div>
+<h4 class="text-lg font-bold mb-1">Pista 01</h4>
+<p class="text-slate-400 text-xs mb-4">Interior</p>
+<div class="bg-background-light dark:bg-background-dark/50 rounded-lg p-3 border border-primary/5 min-h-[60px] flex items-center justify-center">
+<p class="text-xs text-slate-500 italic text-center">Disponible para reserva inmediata</p>
+</div>
+</div>
+<div class="p-3 border-t border-primary/5 flex gap-2">
+<button class="flex-1 text-xs font-bold py-2 border border-primary/30 rounded-lg text-primary hover:bg-primary/5">Ver Reservas</button>
+<button class="p-2 border border-primary/30 rounded-lg text-primary hover:bg-primary/5"><span class="material-symbols-outlined text-sm">block</span></button>
+<button class="p-2 border border-primary/30 rounded-lg text-primary hover:bg-primary/5"><span class="material-symbols-outlined text-sm">edit</span></button>
+</div>
+</div>
+<!-- Pista 02 (Ocupada) -->
+<div class="bg-white dark:bg-surface-dark rounded-xl border-t-4 border-accent-red shadow-lg overflow-hidden flex flex-col h-full">
+<div class="p-5 flex-1">
+<div class="flex justify-between items-start mb-3">
+<span class="px-2.5 py-1 rounded bg-accent-red/10 text-accent-red text-[10px] font-bold tracking-widest uppercase">Ocupada</span>
+<span class="text-slate-400 text-xs italic">Panorámica</span>
+</div>
+<h4 class="text-lg font-bold mb-1">Pista 02</h4>
+<p class="text-slate-400 text-xs mb-4">Panorámica</p>
+<div class="bg-accent-red/5 rounded-lg p-3 border border-accent-red/10">
+<p class="text-xs font-bold text-accent-red mb-1">Roberto Gomez</p>
+<p class="text-[10px] text-slate-400">17:00 - 18:30</p>
+</div>
+</div>
+<div class="p-3 border-t border-primary/5 flex gap-2">
+<button class="flex-1 text-xs font-bold py-2 border border-primary/30 rounded-lg text-primary hover:bg-primary/5">Ver Reservas</button>
+<button class="p-2 border border-primary/30 rounded-lg text-primary hover:bg-primary/5"><span class="material-symbols-outlined text-sm">block</span></button>
+<button class="p-2 border border-primary/30 rounded-lg text-primary hover:bg-primary/5"><span class="material-symbols-outlined text-sm">edit</span></button>
+</div>
+</div>
+<!-- Pista 03 (Mantenimiento) -->
+<div class="bg-white dark:bg-surface-dark rounded-xl border-t-4 border-accent-orange shadow-lg overflow-hidden flex flex-col h-full">
+<div class="p-5 flex-1">
+<div class="flex justify-between items-start mb-3">
+<span class="px-2.5 py-1 rounded bg-accent-orange/10 text-accent-orange text-[10px] font-bold tracking-widest uppercase">Mantenimiento</span>
+<span class="text-slate-400 text-xs italic">Cristal</span>
+</div>
+<h4 class="text-lg font-bold mb-1">Pista 03</h4>
+<p class="text-slate-400 text-xs mb-4">Interior</p>
+<div class="bg-accent-orange/5 rounded-lg p-3 border border-accent-orange/10 flex items-center gap-2">
+<span class="material-symbols-outlined text-accent-orange text-sm">warning</span>
+<p class="text-[10px] text-accent-orange font-medium leading-tight">Reparación de red en curso</p>
+</div>
+</div>
+<div class="p-3 border-t border-primary/5 flex gap-2">
+<button class="flex-1 text-xs font-bold py-2 border border-primary/30 rounded-lg text-primary hover:bg-primary/5">Ver Reservas</button>
+<button class="p-2 border border-primary/30 rounded-lg text-primary hover:bg-primary/5"><span class="material-symbols-outlined text-sm">block</span></button>
+<button class="p-2 border border-primary/30 rounded-lg text-primary hover:bg-primary/5"><span class="material-symbols-outlined text-sm">edit</span></button>
+</div>
+</div>
+<!-- Repeat Courts 4-10 with variations -->
+<div class="bg-white dark:bg-surface-dark rounded-xl border-t-4 border-accent-red shadow-lg overflow-hidden flex flex-col h-full">
+<div class="p-5 flex-1">
+<div class="flex justify-between items-start mb-3">
+<span class="px-2.5 py-1 rounded bg-accent-red/10 text-accent-red text-[10px] font-bold tracking-widest uppercase">Ocupada</span>
+<span class="text-slate-400 text-xs italic">Cristal</span>
+</div>
+<h4 class="text-lg font-bold mb-1">Pista 04</h4>
+<p class="text-slate-400 text-xs mb-4">Exterior</p>
+<div class="bg-accent-red/5 rounded-lg p-3 border border-accent-red/10">
+<p class="text-xs font-bold text-accent-red mb-1">Ana Belén</p>
+<p class="text-[10px] text-slate-400">18:00 - 19:30</p>
+</div>
+</div>
+<div class="p-3 border-t border-primary/5 flex gap-2">
+<button class="flex-1 text-xs font-bold py-2 border border-primary/30 rounded-lg text-primary hover:bg-primary/5">Ver Reservas</button>
+<button class="p-2 border border-primary/30 rounded-lg text-primary hover:bg-primary/5"><span class="material-symbols-outlined text-sm">block</span></button>
+<button class="p-2 border border-primary/30 rounded-lg text-primary hover:bg-primary/5"><span class="material-symbols-outlined text-sm">edit</span></button>
+</div>
+</div>
+<div class="bg-white dark:bg-surface-dark rounded-xl border-t-4 border-primary shadow-lg overflow-hidden flex flex-col h-full">
+<div class="p-5 flex-1">
+<div class="flex justify-between items-start mb-3">
+<span class="px-2.5 py-1 rounded bg-primary/10 text-primary text-[10px] font-bold tracking-widest uppercase">Libre</span>
+<span class="text-slate-400 text-xs italic">Panorámica</span>
+</div>
+<h4 class="text-lg font-bold mb-1">Pista 05</h4>
+<p class="text-slate-400 text-xs mb-4">Central</p>
+<div class="bg-background-light dark:bg-background-dark/50 rounded-lg p-3 border border-primary/5 min-h-[60px] flex items-center justify-center">
+<p class="text-xs text-slate-500 italic text-center">Disponible para reserva inmediata</p>
+</div>
+</div>
+<div class="p-3 border-t border-primary/5 flex gap-2">
+<button class="flex-1 text-xs font-bold py-2 border border-primary/30 rounded-lg text-primary hover:bg-primary/5">Ver Reservas</button>
+<button class="p-2 border border-primary/30 rounded-lg text-primary hover:bg-primary/5"><span class="material-symbols-outlined text-sm">block</span></button>
+<button class="p-2 border border-primary/30 rounded-lg text-primary hover:bg-primary/5"><span class="material-symbols-outlined text-sm">edit</span></button>
+</div>
+</div>
+<div class="bg-white dark:bg-surface-dark rounded-xl border-t-4 border-accent-red shadow-lg overflow-hidden flex flex-col h-full">
+<div class="p-5 flex-1">
+<div class="flex justify-between items-start mb-3">
+<span class="px-2.5 py-1 rounded bg-accent-red/10 text-accent-red text-[10px] font-bold tracking-widest uppercase">Ocupada</span>
+<span class="text-slate-400 text-xs italic">Cristal</span>
+</div>
+<h4 class="text-lg font-bold mb-1">Pista 06</h4>
+<p class="text-slate-400 text-xs mb-4">Interior</p>
+<div class="bg-accent-red/5 rounded-lg p-3 border border-accent-red/10">
+<p class="text-xs font-bold text-accent-red mb-1">Javier M.</p>
+<p class="text-[10px] text-slate-400">17:30 - 19:00</p>
+</div>
+</div>
+<div class="p-3 border-t border-primary/5 flex gap-2">
+<button class="flex-1 text-xs font-bold py-2 border border-primary/30 rounded-lg text-primary hover:bg-primary/5">Ver Reservas</button>
+<button class="p-2 border border-primary/30 rounded-lg text-primary hover:bg-primary/5"><span class="material-symbols-outlined text-sm">block</span></button>
+<button class="p-2 border border-primary/30 rounded-lg text-primary hover:bg-primary/5"><span class="material-symbols-outlined text-sm">edit</span></button>
+</div>
+</div>
+<div class="bg-white dark:bg-surface-dark rounded-xl border-t-4 border-primary shadow-lg overflow-hidden flex flex-col h-full">
+<div class="p-5 flex-1">
+<div class="flex justify-between items-start mb-3">
+<span class="px-2.5 py-1 rounded bg-primary/10 text-primary text-[10px] font-bold tracking-widest uppercase">Libre</span>
+<span class="text-slate-400 text-xs italic">Cristal</span>
+</div>
+<h4 class="text-lg font-bold mb-1">Pista 07</h4>
+<p class="text-slate-400 text-xs mb-4">Exterior</p>
+<div class="bg-background-light dark:bg-background-dark/50 rounded-lg p-3 border border-primary/5 min-h-[60px] flex items-center justify-center">
+<p class="text-xs text-slate-500 italic text-center">Disponible para reserva inmediata</p>
+</div>
+</div>
+<div class="p-3 border-t border-primary/5 flex gap-2">
+<button class="flex-1 text-xs font-bold py-2 border border-primary/30 rounded-lg text-primary hover:bg-primary/5">Ver Reservas</button>
+<button class="p-2 border border-primary/30 rounded-lg text-primary hover:bg-primary/5"><span class="material-symbols-outlined text-sm">block</span></button>
+<button class="p-2 border border-primary/30 rounded-lg text-primary hover:bg-primary/5"><span class="material-symbols-outlined text-sm">edit</span></button>
+</div>
+</div>
+<div class="bg-white dark:bg-surface-dark rounded-xl border-t-4 border-accent-red shadow-lg overflow-hidden flex flex-col h-full">
+<div class="p-5 flex-1">
+<div class="flex justify-between items-start mb-3">
+<span class="px-2.5 py-1 rounded bg-accent-red/10 text-accent-red text-[10px] font-bold tracking-widest uppercase">Ocupada</span>
+<span class="text-slate-400 text-xs italic">Panorámica</span>
+</div>
+<h4 class="text-lg font-bold mb-1">Pista 08</h4>
+<p class="text-slate-400 text-xs mb-4">Panorámica</p>
+<div class="bg-accent-red/5 rounded-lg p-3 border border-accent-red/10">
+<p class="text-xs font-bold text-accent-red mb-1">Carlos R.</p>
+<p class="text-[10px] text-slate-400">19:00 - 20:30</p>
+</div>
+</div>
+<div class="p-3 border-t border-primary/5 flex gap-2">
+<button class="flex-1 text-xs font-bold py-2 border border-primary/30 rounded-lg text-primary hover:bg-primary/5">Ver Reservas</button>
+<button class="p-2 border border-primary/30 rounded-lg text-primary hover:bg-primary/5"><span class="material-symbols-outlined text-sm">block</span></button>
+<button class="p-2 border border-primary/30 rounded-lg text-primary hover:bg-primary/5"><span class="material-symbols-outlined text-sm">edit</span></button>
+</div>
+</div>
+<div class="bg-white dark:bg-surface-dark rounded-xl border-t-4 border-accent-orange shadow-lg overflow-hidden flex flex-col h-full">
+<div class="p-5 flex-1">
+<div class="flex justify-between items-start mb-3">
+<span class="px-2.5 py-1 rounded bg-accent-orange/10 text-accent-orange text-[10px] font-bold tracking-widest uppercase">Mantenimiento</span>
+<span class="text-slate-400 text-xs italic">Cristal</span>
+</div>
+<h4 class="text-lg font-bold mb-1">Pista 09</h4>
+<p class="text-slate-400 text-xs mb-4">Interior</p>
+<div class="bg-accent-orange/5 rounded-lg p-3 border border-accent-orange/10 flex items-center gap-2">
+<span class="material-symbols-outlined text-accent-orange text-sm">cleaning_services</span>
+<p class="text-[10px] text-accent-orange font-medium leading-tight">Limpieza de vidrios semanal</p>
+</div>
+</div>
+<div class="p-3 border-t border-primary/5 flex gap-2">
+<button class="flex-1 text-xs font-bold py-2 border border-primary/30 rounded-lg text-primary hover:bg-primary/5">Ver Reservas</button>
+<button class="p-2 border border-primary/30 rounded-lg text-primary hover:bg-primary/5"><span class="material-symbols-outlined text-sm">block</span></button>
+<button class="p-2 border border-primary/30 rounded-lg text-primary hover:bg-primary/5"><span class="material-symbols-outlined text-sm">edit</span></button>
+</div>
+</div>
+<div class="bg-white dark:bg-surface-dark rounded-xl border-t-4 border-primary shadow-lg overflow-hidden flex flex-col h-full">
+<div class="p-5 flex-1">
+<div class="flex justify-between items-start mb-3">
+<span class="px-2.5 py-1 rounded bg-primary/10 text-primary text-[10px] font-bold tracking-widest uppercase">Libre</span>
+<span class="text-slate-400 text-xs italic">Cristal</span>
+</div>
+<h4 class="text-lg font-bold mb-1">Pista 10</h4>
+<p class="text-slate-400 text-xs mb-4">Interior</p>
+<div class="bg-background-light dark:bg-background-dark/50 rounded-lg p-3 border border-primary/5 min-h-[60px] flex items-center justify-center">
+<p class="text-xs text-slate-500 italic text-center">Disponible para reserva inmediata</p>
+</div>
+</div>
+<div class="p-3 border-t border-primary/5 flex gap-2">
+<button class="flex-1 text-xs font-bold py-2 border border-primary/30 rounded-lg text-primary hover:bg-primary/5">Ver Reservas</button>
+<button class="p-2 border border-primary/30 rounded-lg text-primary hover:bg-primary/5"><span class="material-symbols-outlined text-sm">block</span></button>
+<button class="p-2 border border-primary/30 rounded-lg text-primary hover:bg-primary/5"><span class="material-symbols-outlined text-sm">edit</span></button>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>
