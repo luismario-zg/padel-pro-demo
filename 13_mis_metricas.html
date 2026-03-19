@@ -32,7 +32,7 @@
     </style>
 </head>
 <body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen">
-<header class="sticky top-0 z-50 w-full border-b border-neutral-border bg-background-dark/80 backdrop-blur-md px-6 py-3">
+<header class="relative sticky top-0 z-50 w-full border-b border-neutral-border bg-background-dark/80 backdrop-blur-md px-6 py-3">
 <div class="max-w-7xl mx-auto flex items-center justify-between">
 <div class="flex items-center gap-2 text-primary">
 <span class="material-symbols-outlined text-3xl font-bold">sports_tennis</span>
@@ -57,16 +57,28 @@
 <div class="size-10 rounded-full border-2 border-primary p-0.5">
 <div class="w-full h-full rounded-full bg-cover bg-center" data-alt="Close up portrait of Maria Garcia" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBDBfQxJAr15bYoi5aDm6CK-BbAOGEevwxRmR7tKOgtDL3OePF6sbP1mGoFxO4pGBhl3V0spBkab-W4BAqalAlGLmJ9nmFzUdASS2Ujfo4D9TAhHHcbQfhUgvc_HOAYIuJaUFMr33hsdzS3lWITuz_NhyOm2j-W4z7Tgn-BmrSuptVSQDuY_buyjZbyCh6p6oTuh2JP2AntVQUyuoZ3VfusD7-a_iLsCw4adY7OECNVGHKqSU0JU4_6bP022xRwbEyWh8r4VoP8Rss')"></div>
 </div>
+<button class="md:hidden p-2 text-slate-400 hover:text-primary" onclick="document.getElementById('mobile-nav').classList.toggle('hidden')">
+  <span class="material-symbols-outlined">menu</span>
+</button>
 </div>
 </div>
 </div>
 </header>
+<div id="mobile-nav" class="hidden md:hidden absolute top-[57px] left-0 right-0 z-50 bg-background-dark border-b border-neutral-border p-4">
+  <nav class="flex flex-col gap-3">
+    <a class="text-sm font-medium text-slate-300 hover:text-primary transition-colors" href="10_portal_home.html">Inicio</a>
+    <a class="text-sm font-medium text-slate-300 hover:text-primary transition-colors" href="11_reservar_cancha.html">Reservar</a>
+    <a class="text-sm font-medium text-slate-300 hover:text-primary transition-colors" href="12_mis_reservas.html">Mis Reservas</a>
+    <a class="text-sm font-medium text-slate-300 hover:text-primary transition-colors" href="13_mis_metricas.html">Mi Perfil</a>
+    <a class="text-sm font-medium text-slate-300 hover:text-primary transition-colors" href="09_portal_login.html">Cerrar sesión</a>
+  </nav>
+</div>
 <main class="max-w-7xl mx-auto px-6 py-8">
 <div class="mb-8">
-<h1 class="text-4xl font-black tracking-tight">Mis Métricas</h1>
+<h1 class="text-2xl md:text-4xl font-black tracking-tight">Mis Métricas</h1>
 <p class="text-slate-400 mt-1">Tu rendimiento en el club y evolución competitiva.</p>
 </div>
-<section class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+<section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
 <div class="lg:col-span-3 bg-neutral-dark border border-neutral-border rounded-xl p-6 flex flex-col md:flex-row items-center gap-8 overflow-hidden relative">
 <div class="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl"></div>
 <div class="flex-shrink-0 relative">
@@ -169,8 +181,8 @@
 </div>
 <div class="bg-neutral-dark border border-neutral-border rounded-xl p-6">
 <h3 class="text-lg font-bold mb-6">Resultado de partidos</h3>
-<div class="flex items-center justify-around h-48">
-<div class="relative size-40">
+<div class="flex flex-col sm:flex-row items-center justify-around gap-4 sm:h-48">
+<div class="relative size-28 sm:size-40">
 <svg class="size-full" viewbox="0 0 36 36">
 <path class="text-slate-800" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="100, 100" stroke-width="4"></path>
 <path class="text-primary" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="60, 100" stroke-linecap="round" stroke-width="4"></path>
@@ -210,19 +222,19 @@
 <table class="w-full text-left border-collapse">
 <thead>
 <tr class="bg-slate-900/50 text-slate-500 text-[10px] font-bold uppercase tracking-widest">
-<th class="px-6 py-4">Fecha</th>
-<th class="px-6 py-4">Pista</th>
-<th class="px-6 py-4">Compañeros</th>
-<th class="px-6 py-4">Resultado</th>
-<th class="px-6 py-4">Duración</th>
+<th class="px-3 md:px-6 py-3 md:py-4">Fecha</th>
+<th class="px-3 md:px-6 py-3 md:py-4">Pista</th>
+<th class="px-3 md:px-6 py-3 md:py-4">Compañeros</th>
+<th class="px-3 md:px-6 py-3 md:py-4">Resultado</th>
+<th class="px-3 md:px-6 py-3 md:py-4">Duración</th>
 </tr>
 </thead>
 <tbody class="text-sm">
 <tr class="hover:bg-slate-800/30 transition-colors">
 <td class="px-6 py-4 font-medium">24 Mar, 2024</td>
 <td class="px-6 py-4 text-slate-400">Pista Panorámica 2</td>
-<td class="px-6 py-4">D. López, S. Ruiz</td>
-<td class="px-6 py-4">
+<td class="px-3 md:px-6 py-3 md:py-4">D. López, S. Ruiz</td>
+<td class="px-3 md:px-6 py-3 md:py-4">
 <span class="bg-primary/20 text-primary px-3 py-1 rounded-full text-xs font-bold border border-primary/30">Victoria</span>
 </td>
 <td class="px-6 py-4 text-slate-400">90 min</td>
@@ -230,8 +242,8 @@
 <tr class="bg-slate-900/30 hover:bg-slate-800/30 transition-colors">
 <td class="px-6 py-4 font-medium">21 Mar, 2024</td>
 <td class="px-6 py-4 text-slate-400">Pista Central</td>
-<td class="px-6 py-4">A. Mínguez, L. Beltrán</td>
-<td class="px-6 py-4">
+<td class="px-3 md:px-6 py-3 md:py-4">A. Mínguez, L. Beltrán</td>
+<td class="px-3 md:px-6 py-3 md:py-4">
 <span class="bg-primary/20 text-primary px-3 py-1 rounded-full text-xs font-bold border border-primary/30">Victoria</span>
 </td>
 <td class="px-6 py-4 text-slate-400">60 min</td>
@@ -239,8 +251,8 @@
 <tr class="hover:bg-slate-800/30 transition-colors">
 <td class="px-6 py-4 font-medium">18 Mar, 2024</td>
 <td class="px-6 py-4 text-slate-400">Pista Estándar 4</td>
-<td class="px-6 py-4">M. Torres, J. Cano</td>
-<td class="px-6 py-4">
+<td class="px-3 md:px-6 py-3 md:py-4">M. Torres, J. Cano</td>
+<td class="px-3 md:px-6 py-3 md:py-4">
 <span class="bg-slate-800 text-slate-400 px-3 py-1 rounded-full text-xs font-bold border border-slate-700">Derrota</span>
 </td>
 <td class="px-6 py-4 text-slate-400">120 min</td>
@@ -248,8 +260,8 @@
 <tr class="bg-slate-900/30 hover:bg-slate-800/30 transition-colors">
 <td class="px-6 py-4 font-medium">15 Mar, 2024</td>
 <td class="px-6 py-4 text-slate-400">Pista Panorámica 1</td>
-<td class="px-6 py-4">S. Ruiz, P. Casado</td>
-<td class="px-6 py-4">
+<td class="px-3 md:px-6 py-3 md:py-4">S. Ruiz, P. Casado</td>
+<td class="px-3 md:px-6 py-3 md:py-4">
 <span class="bg-primary/20 text-primary px-3 py-1 rounded-full text-xs font-bold border border-primary/30">Victoria</span>
 </td>
 <td class="px-6 py-4 text-slate-400">90 min</td>
@@ -257,8 +269,8 @@
 <tr class="hover:bg-slate-800/30 transition-colors">
 <td class="px-6 py-4 font-medium">12 Mar, 2024</td>
 <td class="px-6 py-4 text-slate-400">Pista Central</td>
-<td class="px-6 py-4">R. Gómez, L. Beltrán</td>
-<td class="px-6 py-4">
+<td class="px-3 md:px-6 py-3 md:py-4">R. Gómez, L. Beltrán</td>
+<td class="px-3 md:px-6 py-3 md:py-4">
 <span class="bg-primary/20 text-primary px-3 py-1 rounded-full text-xs font-bold border border-primary/30">Victoria</span>
 </td>
 <td class="px-6 py-4 text-slate-400">75 min</td>
@@ -266,8 +278,8 @@
 <tr class="bg-slate-900/30 hover:bg-slate-800/30 transition-colors">
 <td class="px-6 py-4 font-medium">09 Mar, 2024</td>
 <td class="px-6 py-4 text-slate-400">Pista Estándar 3</td>
-<td class="px-6 py-4">D. López, J. Valdés</td>
-<td class="px-6 py-4">
+<td class="px-3 md:px-6 py-3 md:py-4">D. López, J. Valdés</td>
+<td class="px-3 md:px-6 py-3 md:py-4">
 <span class="bg-primary/20 text-primary px-3 py-1 rounded-full text-xs font-bold border border-primary/30">Victoria</span>
 </td>
 <td class="px-6 py-4 text-slate-400">90 min</td>
@@ -275,8 +287,8 @@
 <tr class="hover:bg-slate-800/30 transition-colors">
 <td class="px-6 py-4 font-medium">05 Mar, 2024</td>
 <td class="px-6 py-4 text-slate-400">Pista Panorámica 2</td>
-<td class="px-6 py-4">M. Torres, A. Mínguez</td>
-<td class="px-6 py-4">
+<td class="px-3 md:px-6 py-3 md:py-4">M. Torres, A. Mínguez</td>
+<td class="px-3 md:px-6 py-3 md:py-4">
 <span class="bg-slate-800 text-slate-400 px-3 py-1 rounded-full text-xs font-bold border border-slate-700">Derrota</span>
 </td>
 <td class="px-6 py-4 text-slate-400">60 min</td>
@@ -284,8 +296,8 @@
 <tr class="bg-slate-900/30 hover:bg-slate-800/30 transition-colors">
 <td class="px-6 py-4 font-medium">02 Mar, 2024</td>
 <td class="px-6 py-4 text-slate-400">Pista Central</td>
-<td class="px-6 py-4">S. Ruiz, R. Gómez</td>
-<td class="px-6 py-4">
+<td class="px-3 md:px-6 py-3 md:py-4">S. Ruiz, R. Gómez</td>
+<td class="px-3 md:px-6 py-3 md:py-4">
 <span class="bg-slate-800 text-slate-400 px-3 py-1 rounded-full text-xs font-bold border border-slate-700">Derrota</span>
 </td>
 <td class="px-6 py-4 text-slate-400">105 min</td>

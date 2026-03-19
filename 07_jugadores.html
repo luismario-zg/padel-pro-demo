@@ -27,9 +27,9 @@
 <title>PadelPro Admin - Jugadores</title>
 </head>
 <body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased">
-<div class="flex min-h-screen">
+<div class="min-h-screen">
 <!-- Sidebar -->
-<aside class="w-64 shrink-0 border-r border-slate-200 dark:border-slate-800 flex flex-col justify-between p-4 bg-background-light dark:bg-background-dark">
+<aside id="admin-sidebar" class="w-64 fixed h-full z-50 border-r border-slate-200 dark:border-slate-800 flex flex-col justify-between p-4 bg-background-light dark:bg-background-dark -translate-x-full md:translate-x-0 transition-transform duration-300">
 <div class="flex flex-col gap-8">
 <div class="flex items-center gap-3 px-2">
 <div class="size-10 rounded-lg bg-primary flex items-center justify-center text-slate-900">
@@ -81,9 +81,15 @@
 </div>
 </aside>
 <!-- Main Content -->
-<main class="flex-1 overflow-y-auto bg-slate-50/50 dark:bg-background-dark p-8">
+<main class="ml-0 md:ml-64 min-h-screen bg-slate-50/50 dark:bg-background-dark p-4 md:p-8">
+<div class="md:hidden flex items-center gap-3 mb-4 pb-4 border-b border-slate-200 dark:border-slate-800">
+  <button class="p-2 text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" onclick="toggleSidebar()">
+    <span class="material-symbols-outlined">menu</span>
+  </button>
+  <span class="text-sm font-bold">PadelPro Admin</span>
+</div>
 <!-- Header -->
-<div class="flex justify-between items-center mb-8">
+<div class="flex flex-wrap justify-between items-center gap-4 mb-8">
 <div>
 <h2 class="text-3xl font-black tracking-tight">Jugadores &amp; Suscriptores</h2>
 <p class="text-slate-500 dark:text-slate-400 mt-1">Gestiona la base de datos de usuarios y membresías.</p>
@@ -401,5 +407,17 @@
 </div>
 </div>
 </main>
+<!-- Mobile sidebar overlay -->
+<div id="sidebar-overlay" class="hidden fixed inset-0 bg-black/50 z-40 md:hidden" onclick="closeSidebar()"></div>
+<script>
+function toggleSidebar() {
+  document.getElementById('admin-sidebar').classList.toggle('-translate-x-full');
+  document.getElementById('sidebar-overlay').classList.toggle('hidden');
+}
+function closeSidebar() {
+  document.getElementById('admin-sidebar').classList.add('-translate-x-full');
+  document.getElementById('sidebar-overlay').classList.add('hidden');
+}
+</script>
 </div>
 </body></html>

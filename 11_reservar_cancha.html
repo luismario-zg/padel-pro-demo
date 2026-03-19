@@ -43,7 +43,7 @@
 </head>
 <body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen">
 <!-- Top Navigation Bar -->
-<header class="border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-background-dark sticky top-0 z-50">
+<header class="relative border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-background-dark sticky top-0 z-50">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 <div class="flex justify-between h-16 items-center">
 <!-- Logo & Nav Links -->
@@ -72,16 +72,28 @@
 </div>
 <div class="w-10 h-10 rounded-full bg-cover bg-center border-2 border-primary/20" data-alt="User profile picture of Maria Garcia" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCMdAiUOyKHgaHebIN60UHMamiDeKIdEvsWXQ5WOy1c2qKWdlp9TvTqo1rSV5FlXv-VDWaetV5EcyqmH_8wRtxuUBtddcEUb__OJgyIw2ZR_lC5o4ZrPaD9NLZZVzz736DvGFJh_fWjI_RyC3mYhP2RNsKKT8ruX2R_8JKsypZ9l7dKsVjS7rdbTa__2ekAWzycz-I8byx9KiVjsxtBpBW_sjgB1iLowkFAol1-5cfnfU65ntywalhE41tYFy9ZYUMJnslb5GwnB6Q')"></div>
 </div>
+<button class="md:hidden p-2 text-slate-400 hover:text-primary" onclick="document.getElementById('mobile-nav').classList.toggle('hidden')">
+  <span class="material-symbols-outlined">menu</span>
+</button>
 </div>
 </div>
 </div>
 </header>
+<div id="mobile-nav" class="hidden md:hidden absolute top-[65px] left-0 right-0 z-50 bg-background-dark border-b border-slate-800 p-4">
+  <nav class="flex flex-col gap-3">
+    <a class="text-sm font-medium text-slate-300 hover:text-primary transition-colors" href="10_portal_home.html">Inicio</a>
+    <a class="text-sm font-medium text-slate-300 hover:text-primary transition-colors" href="11_reservar_cancha.html">Reservar</a>
+    <a class="text-sm font-medium text-slate-300 hover:text-primary transition-colors" href="12_mis_reservas.html">Mis Reservas</a>
+    <a class="text-sm font-medium text-slate-300 hover:text-primary transition-colors" href="13_mis_metricas.html">Mi Perfil</a>
+    <a class="text-sm font-medium text-slate-300 hover:text-primary transition-colors" href="09_portal_login.html">Cerrar sesión</a>
+  </nav>
+</div>
 <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
 <div class="flex flex-col lg:flex-row gap-8">
 <!-- LEFT COLUMN: Booking Interface -->
 <div class="lg:w-2/3 flex flex-col gap-6">
 <div>
-<h1 class="text-3xl font-black tracking-tight mb-6">Reservar una cancha</h1>
+<h1 class="text-2xl md:text-3xl font-black tracking-tight mb-6">Reservar una cancha</h1>
 <!-- Date Selector Strip -->
 <div class="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-hide mb-4">
 <button class="flex-1 min-w-[70px] flex flex-col items-center p-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-accent-dark/30 hover:border-primary transition-all">
@@ -209,7 +221,7 @@
 </div>
 </div>
 <!-- RIGHT COLUMN: Booking Summary -->
-<div class="lg:w-1/3">
+<div class="lg:w-1/3 order-first lg:order-none">
 <div class="bg-card-dark rounded-2xl p-6 border border-slate-800 sticky top-24 shadow-2xl">
 <h2 class="text-xl font-bold mb-6">Resumen de reserva</h2>
 <div class="space-y-4 mb-8">
@@ -266,7 +278,7 @@
 <button class="w-full bg-primary hover:bg-primary/90 text-background-dark font-black py-4 rounded-xl text-lg transition-transform active:scale-95 mb-4" onclick="window.location.href='12_mis_reservas.html'">
                         Confirmar reserva
                     </button>
-<p class="text-center text-[11px] text-slate-500 px-4 leading-relaxed">
+<p class="text-center text-xs text-slate-500 px-4 leading-relaxed">
 <span class="material-symbols-outlined text-[12px] align-middle mr-1">info</span>
                         Política de cancelación: Reembolso completo hasta 24h antes del inicio de la reserva.
                     </p>

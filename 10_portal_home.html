@@ -52,7 +52,7 @@
 </head>
 <body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen font-display">
 <!-- Top Navigation -->
-<header class="sticky top-0 z-50 w-full border-b border-border-dark bg-background-dark/80 backdrop-blur-md px-4 md:px-8">
+<header class="relative sticky top-0 z-50 w-full border-b border-border-dark bg-background-dark/80 backdrop-blur-md px-4 md:px-8">
 <div class="max-w-7xl mx-auto flex h-16 items-center justify-between">
 <div class="flex items-center gap-8">
 <div class="flex items-center gap-2 text-primary">
@@ -83,9 +83,21 @@
 <img alt="María García" class="h-full w-full object-cover" data-alt="Portrait of a female padel player smiling" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmacXfpFyfRQFdZcQetGKwLpWqBECDmpRTSNmeTzAhLkzr78eX-JSDpY-D0XlLY9etNA-xBNTiUABAGyXMUaQnkeoUGmfsQNkzv6NgedzIB3Eqyd5cDBXksv4Jy6NiEpgCKNFqYtLxFIkO93lTQbGPZjFOUqLd6BDaPPYby5GECMb2Pir5jJi1gt5jsJZ9nJJe02Hnrp-xMirDuczZcNi99Z_atQh09SywpQmoNLS08ndfmzh_FqxXoPJMFW4KdImCptxCwWSvMjo"/>
 </div>
 </div>
+<button class="md:hidden p-2 text-slate-400 hover:text-primary" onclick="document.getElementById('mobile-nav').classList.toggle('hidden')">
+  <span class="material-symbols-outlined">menu</span>
+</button>
 </div>
 </div>
 </header>
+<div id="mobile-nav" class="hidden md:hidden absolute top-[65px] left-0 right-0 z-50 bg-background-dark border-b border-border-dark p-4">
+  <nav class="flex flex-col gap-3">
+    <a class="text-sm font-medium text-slate-300 hover:text-primary transition-colors" href="10_portal_home.html">Inicio</a>
+    <a class="text-sm font-medium text-slate-300 hover:text-primary transition-colors" href="11_reservar_cancha.html">Reservar</a>
+    <a class="text-sm font-medium text-slate-300 hover:text-primary transition-colors" href="12_mis_reservas.html">Mis Reservas</a>
+    <a class="text-sm font-medium text-slate-300 hover:text-primary transition-colors" href="13_mis_metricas.html">Mi Perfil</a>
+    <a class="text-sm font-medium text-slate-300 hover:text-primary transition-colors" href="09_portal_login.html">Cerrar sesión</a>
+  </nav>
+</div>
 <main class="max-w-7xl mx-auto px-4 py-8 md:px-8">
 <!-- Hero Section -->
 <section class="mb-10">
@@ -275,7 +287,7 @@
                 Actividad reciente
                 <span class="material-symbols-outlined text-slate-500">history</span>
 </h3>
-<div class="bg-surface-dark rounded-2xl border border-border-dark overflow-hidden">
+<div class="bg-surface-dark rounded-2xl border border-border-dark overflow-x-auto">
 <table class="w-full text-left">
 <thead class="bg-background-dark/50 border-b border-border-dark">
 <tr>

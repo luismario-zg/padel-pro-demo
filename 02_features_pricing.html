@@ -43,7 +43,7 @@
 <body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 transition-colors duration-300">
 <div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
 <!-- Navigation -->
-<header class="sticky top-0 z-50 w-full border-b border-slate-200 dark:border-slate-800 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md">
+<header class="relative sticky top-0 z-50 w-full border-b border-slate-200 dark:border-slate-800 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md">
 <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 <div class="flex h-16 items-center justify-between">
 <a class="flex items-center gap-2" href="01_landing_hero.html">
@@ -60,10 +60,21 @@
 <button class="rounded-lg bg-primary px-4 py-2 text-sm font-bold text-background-dark hover:opacity-90 transition-opacity" onclick="window.location.href='09_portal_login.html'">
                             Comenzar gratis
                         </button>
+<button class="md:hidden p-2 text-slate-400 hover:text-primary" onclick="document.getElementById('mobile-nav').classList.toggle('hidden')">
+  <span class="material-symbols-outlined">menu</span>
+</button>
 </div>
 </div>
 </div>
 </header>
+<div id="mobile-nav" class="hidden md:hidden absolute top-[65px] left-0 right-0 z-50 bg-background-dark border-b border-slate-800 p-4">
+  <nav class="flex flex-col gap-3">
+    <a class="text-sm font-medium text-slate-300 hover:text-primary transition-colors" href="#caracteristicas">Características</a>
+    <a class="text-sm font-medium text-slate-300 hover:text-primary transition-colors" href="#precios">Precios</a>
+    <a class="text-sm font-medium text-slate-300 hover:text-primary transition-colors" href="03_admin_login.html">Iniciar sesión</a>
+    <a class="text-sm font-bold text-primary" href="09_portal_login.html">Comenzar gratis</a>
+  </nav>
+</div>
 <main class="flex-grow">
 <!-- Features Section -->
 <section class="py-24 sm:py-32" id="caracteristicas">
@@ -176,7 +187,7 @@
                             </button>
 </div>
 <!-- Tier 2: Pro (Featured) -->
-<div class="relative flex flex-col rounded-xl bg-white dark:bg-card-dark p-8 border-2 border-primary shadow-2xl scale-105 z-10">
+<div class="relative flex flex-col rounded-xl bg-white dark:bg-card-dark p-8 border-2 border-primary shadow-2xl lg:scale-105 z-10">
 <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-background-dark text-xs font-bold uppercase tracking-widest px-4 py-1 rounded-full">
                                 Más popular
                             </div>
